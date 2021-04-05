@@ -9,6 +9,7 @@ services:
       - ./xaseco/adminops.xml:/adminops.xml
       - ./xaseco/config.xml:/config.xml
       - ./xaseco/localdatabase.xml:/localdatabase.xml
+      - ./xaseco/dedimania.xml:/dedimania.xml
     ports:
       - 8002:8002
   dedicated:
