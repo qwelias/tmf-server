@@ -9,5 +9,6 @@ RUN curl 'http://www.undef.name/.downloads/xaseco-1.16.zip' -o archive.zip && \
     mv newinstall/*.xml . && mv newinstall/*.php includes
 
 # COPY php7 ./
+COPY plugins plugins
 
 CMD ["php", "aseco.php", "TMF"]

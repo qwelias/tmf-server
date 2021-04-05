@@ -10,6 +10,10 @@ services:
       - ./xaseco/config.xml:/config.xml
       - ./xaseco/localdatabase.xml:/localdatabase.xml
       - ./xaseco/dedimania.xml:/dedimania.xml
+      - ./xaseco/plugins.xml:/plugins.xml
+      - ./xaseco/bestcps.xml:/bestcps.xml
+      - ./xaseco/fufi_menu_config.xml:/fufi_menu_config.xml
+      - ./xaseco/records_eyepiece.xml:/records_eyepiece.xml
     ports:
       - 8002:8002
   dedicated:
