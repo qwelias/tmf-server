@@ -66,7 +66,7 @@
 		<server_p2p_port>3450</server_p2p_port>
 		<client_port>0</client_port>
 		<force_ip_address>80.87.111.227</force_ip_address>
-		<bind_ip_address>80.87.111.227</bind_ip_address>
+		<bind_ip_address></bind_ip_address>
 		<use_nat_upnp></use_nat_upnp>
 
 		<p2p_cache_size>600</p2p_cache_size>

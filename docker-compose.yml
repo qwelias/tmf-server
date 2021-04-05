@@ -20,5 +20,7 @@ services:
       - 3450 # p2p
       - 5000 # XMLRPC only local comms
     ports:
-      - 2350:2350
-      - 3450:3450
+      - 2350:2350/tcp
+      - 2350:2350/udp
+      - 3450:3450/tcp
+      - 3450:3450/udp
