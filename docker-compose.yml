@@ -26,6 +26,7 @@ services:
       - 3450:3450/udp
   db:
     image: mysql
+    env_file: ./db/.env
     volumes:
       - type: bind
         source: ./db/data
