@@ -29,9 +29,10 @@ services:
       - 3450:3450/tcp
       - 3450:3450/udp
   db:
-    image: mysql:7-alpine
+    image: mysql:5
     restart: unless-stopped
     env_file: ./db/.env
     volumes:
       - ./db/data:/var/lib/mysql
+      - ./db/mysqld.cnf:/etc/mysql/mysql.conf.d
 
