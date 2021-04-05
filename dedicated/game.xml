@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<playlist>
+	<gameinfos>
+		<game_mode>1</game_mode>
+		<chat_time>10000</chat_time>
+		<timeattack_limit>9 00000</timeattack_limit>
+		<timeattack_synchstartperiod>0</timeattack_synchstartperiod>
+	</gameinfos>
+
+	<filter>
+		<is_internet>1</is_internet>
+		<sort_index>31</sort_index>
+		<random_map_order>0</random_map_order>
+	</filter>
+
+	<challenge>
+		<file>Campaigns\United\Race\Island\Red\IslandD1.Challenge.Gbx</file>
+		<ident>A7s5IpC7XfDWknn1PXKKBKCD2W1</ident>
+	</challenge>
+	<challenge>
+		<file>Campaigns\United\Race\Island\Red\IslandD2.Challenge.Gbx</file>
+		<ident>E7XQEP4oT4qP8NYeOn81YPYgEO5</ident>
+	</challenge>
+	<challenge>
+		<file>Campaigns\United\Race\Island\Red\IslandD3.Challenge.Gbx</file>
+		<ident>rK_OGHHTE9GdMqSpPBOqvkjleq5</ident>
+	</challenge>
+	<challenge>
+		<file>Campaigns\United\Race\Island\Red\IslandD4.Challenge.Gbx</file>
+		<ident>ST387vLgNaX4HbasZzXruPq3kzh</ident>
+	</challenge>
+	<challenge>
+		<file>Campaigns\United\Race\Island\Red\IslandD5.Challenge.Gbx</file>
+		<ident>PTOfMzMx8Sdrk4by2lJFqf9vtJl</ident>
+	</challenge>
+</playlist>
