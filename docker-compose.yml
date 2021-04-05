@@ -9,6 +9,8 @@ services:
       - ./xaseco/adminops.xml:/adminops.xml
       - ./xaseco/config.xml:/config.xml
       - ./xaseco/localdatabase.xml:/localdatabase.xml
+    ports:
+      - 8002:8002
   dedicated:
     build: dedicated
     init: true
@@ -27,7 +29,7 @@ services:
       - 3450:3450/tcp
       - 3450:3450/udp
   db:
-    image: mysql
+    image: mysql:7-alpine
     restart: unless-stopped
     env_file: ./db/.env
     volumes:
