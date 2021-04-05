@@ -24,3 +24,10 @@ services:
       - 2350:2350/udp
       - 3450:3450/tcp
       - 3450:3450/udp
+  db:
+    image: mysql
+    volumes:
+      - type: bind
+        source: ./db/data
+        target: /var/lib/mysql
+
