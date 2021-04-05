@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <settings>
 	<!-- MySQL Server Settings -->
-	<mysql_server>localhost</mysql_server>
+	<mysql_server>db</mysql_server>
 	<mysql_login>YOUR_MYSQL_LOGIN</mysql_login>
 	<mysql_password>YOUR_MYSQL_PASSWORD</mysql_password>
 	<mysql_database>aseco</mysql_database>

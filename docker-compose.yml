@@ -5,6 +5,10 @@ services:
     build: xaseco
     init: true
     restart: unless-stopped
+    volumes:
+      - ./xaseco/adminops.xml:/adminops.xml
+      - ./xaseco/config.xml:/config.xml
+      - ./xaseco/localdatabase.xml:/localdatabase.xml
   dedicated:
     build: dedicated
     init: true
