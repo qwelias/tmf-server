@@ -1,20 +1,18 @@
 version: "3.9"
 
 services:
+  xaseco:
+    build: xaseco
+    init: true
+    restart: unless-stopped
   dedicated:
     build: dedicated
     init: true
     restart: unless-stopped
     volumes:
-      - type: bind
-        source: ./dedicated/Config
-        target: /GameData/Config
-      - type: bind
-        source: ./dedicated/game.xml
-        target: /GameData/Tracks/game.xml
-      - type: bind
-        source: ./dedicated/Challenges
-        target: /GameData/Tracks/Challenges
+      - ./dedicated/Config:/GameData/Config
+      - ./dedicated/game.xml:/GameData/Tracks/game.xml
+      - ./dedicated/Challenges:/GameData/Tracks/Challenges
     expose:
       - 2350 # server
       - 3450 # p2p
@@ -26,9 +24,8 @@ services:
       - 3450:3450/udp
   db:
     image: mysql
+    restart: unless-stopped
     env_file: ./db/.env
     volumes:
-      - type: bind
-        source: ./db/data
-        target: /var/lib/mysql
+      - ./db/data:/var/lib/mysql
 
