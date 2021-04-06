@@ -14,6 +14,7 @@ services:
       - ./xaseco/bestcps.xml:/bestcps.xml
       - ./xaseco/fufi_menu_config.xml:/fufi_menu_config.xml
       - ./xaseco/records_eyepiece.xml:/records_eyepiece.xml
+      - ./xaseco/spyke_allcps.xml:/spyke_allcps.xml
     ports:
       - 8002:8002
   dedicated:

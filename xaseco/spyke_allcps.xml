@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+
+	<!-- you have two possibilities to display manialink -->
+	<!-- First is to set "show_custom_version to "true" : display custom version style race chrono (bigger) -->
+	<!-- Second is to set "show_custom_version" to "false" : display standard version style normal text -->
+	<!-- All other choices do not display the manialink ! --> 
+
+<!-- .................................................................................................................................. -->
+	<show_custom_version>false</show_custom_version>
+<!-- .................................................................................................................................. -->
+
+
+
+	<!-- you have two possibilities to display or not Dedimania manialink -->
+	<!-- First is to set "show_dedimania" to "true" : display dedimania manialink -->
+	<!-- Second is to set "show_dedimania" to "false" : do not display dedimania manialink -->
+	<!-- All other choices do not display the dedimania manialink ! --> 
+
+<!-- .................................................................................................................................. -->
+	<show_dedimania>true</show_dedimania>
+<!-- .................................................................................................................................. -->
+
+
+	<show_time>0</show_time><!-- Duration for manialink   0 = always; 1000 = 1s; 2000 = 2s etc... -->
+
+	<cpcolor>
+		<text_color>fff</text_color>
+		<rank_color>f70</rank_color>
+		<negative_cp_color>3f5</negative_cp_color>
+		<positive_cp_color>f00</positive_cp_color>
+	</cpcolor>
+
+	<manialink_id1>3488</manialink_id1>
+	<manialink_id2>3489</manialink_id2>
+	
+<!--CUSTOM VERSION-->
+
+	<!-- checkpoints local manialink position -->
+
+	<c_title_local><!--local title-->
+		<hx>26</hx>
+		<vy>30</vy>
+	</c_title_local>
+
+	<c_left_top1_point><!--perso local-->
+		<hx>32</hx>
+		<vy>30</vy>
+	</c_left_top1_point>	
+
+	<c_left_top2_point><!--best local-->
+		<hx>17</hx>
+		<vy>30</vy>
+	</c_left_top2_point>
+
+
+	<!-- checkpoints Dedimania manialink position -->
+
+	<c_title_dedi><!--dedi title-->
+		<hx>-24</hx>
+		<vy>30</vy>
+	</c_title_dedi>
+
+	<c_left_top3_point><!--best dedi-->
+		<hx>-17</hx>
+		<vy>30</vy>
+	</c_left_top3_point>
+
+	<c_left_top4_point><!--perso dedi-->
+		<hx>-32</hx>
+		<vy>30</vy>
+	</c_left_top4_point>
+
+
+<!--NORMAL TEXT VERSION-->
+
+	<!-- checkpoints local manialink position -->
+
+	<title_local><!--local title-->
+		<hx>15</hx>
+		<vy>30</vy>
+	</title_local>
+	<left_top1_point><!--perso local-->
+		<hx>20</hx>
+		<vy>30</vy>
+	</left_top1_point>	
+
+	<left_top2_point><!--best local-->
+		<hx>10</hx>
+		<vy>30</vy>
+	</left_top2_point>
+
+
+	<!-- checkpoints Dedimania manialink position -->
+
+	<title_dedi><!--dedi title-->   
+		<hx>-15</hx>
+		<vy>30</vy>
+	</title_dedi>
+
+	<left_top3_point><!--best dedi-->
+		<hx>-10</hx>
+		<vy>30</vy>
+	</left_top3_point>
+
+	<left_top4_point><!--perso dedi-->
+		<hx>-20</hx>
+		<vy>30</vy>
+	</left_top4_point>
+	
+</settings>

@@ -45,4 +45,5 @@
 	<plugin>plugin.bestcps.php</plugin>
 	<plugin>plugin.fufi.menu.php</plugin>
 	<plugin>plugin.records_eyepiece.php</plugin>
+	<plugin>plugin.spyke_allcps.php</plugin>
 </aseco_plugins>
