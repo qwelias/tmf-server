@@ -653,7 +653,7 @@
 
 	<!-- Displays the DonationWidget at Score (only) -->
 	<donation_widget>
-		<enabled>true</enabled>
+		<enabled>false</enabled>
 		<text_color>FC0F</text_color>
 
 		<!-- Adjust here the wished amounts of Coppers the Players can donate (min. 7 and max. 10 values, seperated by ",")
@@ -896,9 +896,9 @@
 		<dedimania_records>				<!-- Disabled in Gamemode 'Stunts' -->
 			<enabled>true</enabled>
 			<title>Dedimania Records</title>
-			<pos_x>-63.5</pos_x>
-			<pos_y>-8</pos_y>
-			<entries>8</entries>
+			<pos_x>-64.7</pos_x>
+			<pos_y>23.65</pos_y>
+			<entries>16</entries>
 			<icon_style>Icons128x128_1</icon_style>
 			<icon_substyle>Rankings</icon_substyle>
 		</dedimania_records>
@@ -916,9 +916,9 @@
 		<local_records>
 			<enabled>true</enabled>
 			<title>Local Records</title>
-			<pos_x>-63.5</pos_x>
-			<pos_y>9.85</pos_y>
-			<entries>8</entries>
+			<pos_x>49.2</pos_x>
+			<pos_y>17.8</pos_y>
+			<entries>14</entries>
 			<icon_style>Icons128x128_1</icon_style>
 			<icon_substyle>Rankings</icon_substyle>
 		</local_records>
@@ -974,7 +974,7 @@
 		</top_playtime>
 
 		<top_donators>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Donators</title>
 			<pos_x>14.5</pos_x>
 			<pos_y>47.5</pos_y>
