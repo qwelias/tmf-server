@@ -4,10 +4,10 @@
 	<!-- you have two possibilities to display manialink -->
 	<!-- First is to set "show_custom_version to "true" : display custom version style race chrono (bigger) -->
 	<!-- Second is to set "show_custom_version" to "false" : display standard version style normal text -->
-	<!-- All other choices do not display the manialink ! --> 
+	<!-- All other choices do not display the manialink ! -->
 
 <!-- .................................................................................................................................. -->
-	<show_custom_version>false</show_custom_version>
+	<show_custom_version>true</show_custom_version>
 <!-- .................................................................................................................................. -->
 
 
@@ -15,7 +15,7 @@
 	<!-- you have two possibilities to display or not Dedimania manialink -->
 	<!-- First is to set "show_dedimania" to "true" : display dedimania manialink -->
 	<!-- Second is to set "show_dedimania" to "false" : do not display dedimania manialink -->
-	<!-- All other choices do not display the dedimania manialink ! --> 
+	<!-- All other choices do not display the dedimania manialink ! -->
 
 <!-- .................................................................................................................................. -->
 	<show_dedimania>true</show_dedimania>
@@ -33,7 +33,7 @@
 
 	<manialink_id1>3488</manialink_id1>
 	<manialink_id2>3489</manialink_id2>
-	
+
 <!--CUSTOM VERSION-->
 
 	<!-- checkpoints local manialink position -->
@@ -46,7 +46,7 @@
 	<c_left_top1_point><!--perso local-->
 		<hx>32</hx>
 		<vy>30</vy>
-	</c_left_top1_point>	
+	</c_left_top1_point>
 
 	<c_left_top2_point><!--best local-->
 		<hx>17</hx>
@@ -83,7 +83,7 @@
 	<left_top1_point><!--perso local-->
 		<hx>20</hx>
 		<vy>30</vy>
-	</left_top1_point>	
+	</left_top1_point>
 
 	<left_top2_point><!--best local-->
 		<hx>10</hx>
@@ -93,7 +93,7 @@
 
 	<!-- checkpoints Dedimania manialink position -->
 
-	<title_dedi><!--dedi title-->   
+	<title_dedi><!--dedi title-->
 		<hx>-15</hx>
 		<vy>30</vy>
 	</title_dedi>
@@ -107,5 +107,5 @@
 		<hx>-20</hx>
 		<vy>30</vy>
 	</left_top4_point>
-	
+
 </settings>
