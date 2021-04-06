@@ -338,7 +338,7 @@ public $Aseco, $localcheck, $dedicheck, $manialink_id1, $manialink_id2;
 
 		$xmlchrono .= '<frame posn="'.$this->frame2_custom_posn_x.' '.$this->frame2_custom_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="3" text="$s$'.$this->text_color.'#1"/>';
+		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="2" text="$s$'.$this->text_color.'#1"/>';
 		$xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$'.$best.'"/>';
 		$xmlchrono .= '</frame>';
 
@@ -351,7 +351,7 @@ public $Aseco, $localcheck, $dedicheck, $manialink_id1, $manialink_id2;
 
 		$xmlchrono .= '<frame posn="'.$this->frame3_custom_posn_x.' '.$this->frame3_custom_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="3" text="$s$'.$this->text_color.'#1"/>';
+		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="2" text="$s$'.$this->text_color.'#1"/>';
 		$xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$'.$dedibestof.'"/>';
 		$xmlchrono .= '</frame>';
 
