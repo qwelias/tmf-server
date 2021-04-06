@@ -6,6 +6,7 @@ services:
     init: true
     restart: unless-stopped
     volumes:
+      - gamedata:/GameData
       - ./xaseco/adminops.xml:/adminops.xml
       - ./xaseco/config.xml:/config.xml
       - ./xaseco/localdatabase.xml:/localdatabase.xml
@@ -23,9 +24,9 @@ services:
     init: true
     restart: unless-stopped
     volumes:
-      - ./dedicated/Config:/GameData/Config
+      - gamedata:/GameData
+      - ./dedicated/dedicated.xml:/GameData/Config/dedicated.xml
       - ./dedicated/game.xml:/GameData/Tracks/game.xml
-      - ./dedicated/Challenges:/GameData/Tracks/Challenges
     expose:
       - 2350 # server
       - 3450 # p2p
@@ -43,3 +44,6 @@ services:
       - ./db/data:/var/lib/mysql
       - ./db/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
 
+volumes:
+  gamedata:
+    external: true
