@@ -14,6 +14,38 @@ Aseco::registerEvent('onPlayerFinish', 'spyke_ingame_record');
 Aseco::registerEvent('onEndRound', 'spyke_manialink_end');
 Aseco::registerEvent('onStartup', 'info');
 
+// Stolen from basic.inc.php and adjusted
+function cp_formatTime ($MwTime, $hsec = true) {
+
+	if ($MwTime == -1) {
+		return '???';
+	}
+	else {
+		$hseconds = (($MwTime - (floor($MwTime/1000) * 1000)) / 10);
+		$MwTime = floor($MwTime / 1000);
+		$hours = floor($MwTime / 3600);
+		$MwTime = $MwTime - ($hours * 3600);
+		$minutes = floor($MwTime / 60);
+		$MwTime = $MwTime - ($minutes * 60);
+		$seconds = floor($MwTime);
+		if ($hsec) {
+			if ($hours) {
+				return sprintf('%d:%02d:%02d.%02d', $hours, $minutes, $seconds, $hseconds);
+			}
+			else {
+				return sprintf('%d:%02d.%02d', $minutes, $seconds, $hseconds);
+			}
+		}
+		else {
+			if ($hours) {
+				return sprintf('%d:%02d:%02d', $hours, $minutes, $seconds);
+			}
+			else {
+				return sprintf('%d:%02d', $minutes, $seconds);
+			}
+		}
+	}
+}
 
 define('ALL_CPS_VERSION', '1.3');
 
@@ -98,7 +130,7 @@ function checkpoint($aseco, $command)
     $timeref = $command[2];
     $cp = $command[4];
     $show_time = 0 + $show_time;
-    $aseco->console('[plugin.spyke_allcps.php] cp '.$cp.':'.$timeref);
+    // $aseco->console('[plugin.spyke_allcps.php] cp '.$cp.':'.$timeref);
 
     $localtemp = $info->localcheck[$login];
     $localperso = $localtemp['checkpoints'];
@@ -107,12 +139,12 @@ function checkpoint($aseco, $command)
         $persolocalbest = 's$f70none';
     } else {
         $timediff = $timeref - $localperso[$cp]; //individuallocaldiff
-        $aseco->console('[plugin.spyke_allcps.php] local pb '.$timediff.':'.implode(',', $localperso));
+        // $aseco->console('[plugin.spyke_allcps.php] local pb '.$timediff.':'.implode(',', $localperso));
         if ($timediff <= 0) {
-            $persolocalbest = "-" . formatTime(abs($timediff));
+            $persolocalbest = "-" . cp_formatTime(abs($timediff));
             $persolocalbest = $negative_cp_color . $persolocalbest;
         } else {
-            $persolocalbest = "+" . formatTime(abs($timediff));
+            $persolocalbest = "+" . cp_formatTime(abs($timediff));
             $persolocalbest = $positive_cp_color . $persolocalbest;
         }
     }
@@ -124,12 +156,12 @@ function checkpoint($aseco, $command)
         $best = 's$f70none';
     } else {
         $bestdiff = $timeref - $local->checks[$cp]; //bestlocaldiff
-        $aseco->console('[plugin.spyke_allcps.php] local top '.$bestdiff.':'.implode(',', $local->checks));
+        // $aseco->console('[plugin.spyke_allcps.php] local top '.$bestdiff.':'.implode(',', $local->checks));
         if ($bestdiff <= 0) {
-            $best = "-" . formatTime(abs($bestdiff));
+            $best = "-" . cp_formatTime(abs($bestdiff));
             $best = $negative_cp_color . $best;
         } else {
-            $best = "+" . formatTime(abs($bestdiff));
+            $best = "+" . cp_formatTime(abs($bestdiff));
             $best = $positive_cp_color . $best;
         }
     }
@@ -139,12 +171,12 @@ function checkpoint($aseco, $command)
     } else {
         $deditime = $dedi_db['Challenge']['Records'][0]['Checks']; //bestdedidiff
         $dedidiff = $timeref - $deditime[$cp];
-        $aseco->console('[plugin.spyke_allcps.php] dedi top '.$dedidiff.':'.implode(',', $dedi_db['Challenge']['Records'][0]['Checks']));
+        // $aseco->console('[plugin.spyke_allcps.php] dedi top '.$dedidiff.':'.implode(',', $dedi_db['Challenge']['Records'][0]['Checks']));
         if ($dedidiff < 0) {
-            $dedibestof = "-" . formatTime(abs($dedidiff));
+            $dedibestof = "-" . cp_formatTime(abs($dedidiff));
             $dedibestof = $negative_cp_color . $dedibestof;
         } else {
-            $dedibestof = "+" . formatTime(abs($dedidiff));
+            $dedibestof = "+" . cp_formatTime(abs($dedidiff));
             $dedibestof = $positive_cp_color . $dedibestof;
         }
     }
@@ -153,12 +185,12 @@ function checkpoint($aseco, $command)
         $persodedibest = 's$f70none';
     } else {
         $dedidiff = $timeref - $dediperso[$cp]; //individualdedidiff
-        $aseco->console('[plugin.spyke_allcps.php] dedi pb '.$dedidiff.':'.implode(',', $dediperso));
+        // $aseco->console('[plugin.spyke_allcps.php] dedi pb '.$dedidiff.':'.implode(',', $dediperso));
         if ($dedidiff < 0) {
-            $persodedibest = "-" . formatTime(abs($dedidiff));
+            $persodedibest = "-" . cp_formatTime(abs($dedidiff));
             $persodedibest = $negative_cp_color . $persodedibest;
         } else {
-            $persodedibest = "+" . formatTime(abs($dedidiff));
+            $persodedibest = "+" . cp_formatTime(abs($dedidiff));
             $persodedibest = $positive_cp_color . $persodedibest;
         }
     }
