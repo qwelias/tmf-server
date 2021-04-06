@@ -98,7 +98,7 @@ function checkpoint($aseco, $command)
     $timeref = $command[2];
     $cp = $command[4];
     $show_time = 0 + $show_time;
-    $aseco->console('[plugin.spyke_allcps.php] cp '.$timeref.' '.$cp);
+    $aseco->console('[plugin.spyke_allcps.php] cp ');
 
     $localtemp = $info->localcheck[$login];
     $localperso = $localtemp['checkpoints'];
@@ -106,7 +106,7 @@ function checkpoint($aseco, $command)
     if (empty($localperso)) {
         $persolocalbest = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] deci '.implode(',',$localperso));
+        $aseco->console('[plugin.spyke_allcps.php] deci ');
         $timediff = $timeref - $localperso[$cp]; //individuallocaldiff
         if ($timediff <= 0) {
             $persolocalbest = "-" . formatTime(abs($timediff));
@@ -123,7 +123,7 @@ function checkpoint($aseco, $command)
     if (empty($local->checks[$cp])) {
         $best = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] dedi '.implode(',',$dediperso));
+        $aseco->console('[plugin.spyke_allcps.php] dedi ');
         $bestdiff = $timeref - $local->checks[$cp]; //bestlocaldiff
         if ($bestdiff <= 0) {
             $best = "-" . formatTime(abs($bestdiff));
