@@ -186,7 +186,7 @@ function checkpoint($aseco, $command)
     } else {
         $dedidiff = $timeref - $dediperso[$cp]; //individualdedidiff
         // $aseco->console('[plugin.spyke_allcps.php] dedi pb '.$dedidiff.':'.implode(',', $dediperso));
-        if ($dedidiff < 0) {
+        if ($dedidiff <= 0) {
             $persodedibest = "-" . cp_formatTime(abs($dedidiff));
             $persodedibest = $negative_cp_color . $persodedibest;
         } else {
