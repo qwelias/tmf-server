@@ -285,7 +285,7 @@ class info_class
     }
 
 
-    function getManialinkchrono($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $localrank, $dedirank, $localmaxrecs, $maxdedi, $show_dedimania)
+    function getManialinkchrono($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $show_dedimania)
     {
         $cp = $cp + 1;
         $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
