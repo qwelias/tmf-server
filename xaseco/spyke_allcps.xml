@@ -45,12 +45,12 @@
 
 	<c_left_top1_point><!--perso local-->
 		<hx>55</hx>
-		<vy>-25</vy>
+		<vy>-20</vy>
 	</c_left_top1_point>
 
 	<c_left_top2_point><!--best local-->
 		<hx>55</hx>
-		<vy>-20</vy>
+		<vy>-15</vy>
 	</c_left_top2_point>
 
 
@@ -63,12 +63,12 @@
 
 	<c_left_top3_point><!--best dedi-->
 		<hx>-55</hx>
-		<vy>-20</vy>
+		<vy>-15</vy>
 	</c_left_top3_point>
 
 	<c_left_top4_point><!--perso dedi-->
 		<hx>-55</hx>
-		<vy>-25</vy>
+		<vy>-20</vy>
 	</c_left_top4_point>
 
 
