@@ -327,12 +327,12 @@ public $Aseco, $localcheck, $dedicheck, $manialink_id1, $manialink_id2;
 
 		$xmlchrono .= '<frame posn="'.$this->frame_custom_local_title_posn_x.' '.$this->frame_custom_local_title_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="30 4"/>';
-		$xmlchrono .= '<label scale="0.8" posn="0 4 0.1" halign="center" valign="center" textsize="4" text="$s$ffflocal"/>';
+		$xmlchrono .= '<label scale="0.8" posn="0 4 0.1" halign="center" valign="center" textsize="2" text="$s$ffflocal"/>';
 		$xmlchrono .= '</frame>';
 
 		$xmlchrono .= '<frame posn="'.$this->frame1_custom_posn_x.' '.$this->frame1_custom_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="3" text="$s$'.$this->text_color.'me ($'.$this->rank_color.''.$localrank.''.$localmaxrecs.'$fff)"/>';
+		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="2" text="$s$'.$this->text_color.'me ($'.$this->rank_color.''.$localrank.''.$localmaxrecs.'$fff)"/>';
 		$xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$'.$persolocalbest.'"/>';
 		$xmlchrono .= '</frame>';
 
@@ -346,7 +346,7 @@ public $Aseco, $localcheck, $dedicheck, $manialink_id1, $manialink_id2;
 
 		$xmlchrono .= '<frame posn="'.$this->frame_custom_dedi_title_posn_x.' '.$this->frame_custom_dedi_title_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="30 4"/>';
-		$xmlchrono .= '<label scale="0.8" posn="0 4 0.1" halign="center" valign="center" textsize="4" text="$s$fffdedi"/>';
+		$xmlchrono .= '<label scale="0.8" posn="0 4 0.1" halign="center" valign="center" textsize="2" text="$s$fffdedi"/>';
 		$xmlchrono .= '</frame>';
 
 		$xmlchrono .= '<frame posn="'.$this->frame3_custom_posn_x.' '.$this->frame3_custom_posn_y.' 0.3">';
@@ -357,7 +357,7 @@ public $Aseco, $localcheck, $dedicheck, $manialink_id1, $manialink_id2;
 
 		$xmlchrono .= '<frame posn="'.$this->frame4_custom_posn_x.' '.$this->frame4_custom_posn_y.' 0.3">';
 		$xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="3" text="$s$'.$this->text_color.'me ($'.$this->rank_color.''.$dedirank.''.$maxdedi.'$fff)"/>';
+		$xmlchrono .= '<label scale="0.7" posn="0 -1.5 0.1" halign="center" valign="center" textsize="2" text="$s$'.$this->text_color.'me ($'.$this->rank_color.''.$dedirank.''.$maxdedi.'$fff)"/>';
 		$xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$'.$persodedibest.'"/>';
 		$xmlchrono .= '</frame>';
 		}else{}
