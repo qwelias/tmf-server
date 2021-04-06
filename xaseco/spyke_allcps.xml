@@ -44,13 +44,13 @@
 	</c_title_local>
 
 	<c_left_top1_point><!--perso local-->
-		<hx>32</hx>
-		<vy>30</vy>
+		<hx>55</hx>
+		<vy>-25</vy>
 	</c_left_top1_point>
 
 	<c_left_top2_point><!--best local-->
-		<hx>17</hx>
-		<vy>30</vy>
+		<hx>55</hx>
+		<vy>-20</vy>
 	</c_left_top2_point>
 
 
@@ -62,13 +62,13 @@
 	</c_title_dedi>
 
 	<c_left_top3_point><!--best dedi-->
-		<hx>-17</hx>
-		<vy>30</vy>
+		<hx>-55</hx>
+		<vy>-20</vy>
 	</c_left_top3_point>
 
 	<c_left_top4_point><!--perso dedi-->
-		<hx>-32</hx>
-		<vy>30</vy>
+		<hx>-55</hx>
+		<vy>-25</vy>
 	</c_left_top4_point>
 
 
