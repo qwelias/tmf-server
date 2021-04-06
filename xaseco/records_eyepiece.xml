@@ -884,7 +884,7 @@
 	<!-- This Lists are only displayed at Scoretable -->
 	<scoretable_lists>
 		<top_average_times>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Average Last Round</title>
 			<pos_x>-63.5</pos_x>
 			<pos_y>29.5</pos_y>
@@ -924,7 +924,7 @@
 		</local_records>
 
 		<top_rankings>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Ranks</title>
 			<pos_x>-63.5</pos_x>
 			<pos_y>47.5</pos_y>
@@ -934,7 +934,7 @@
 		</top_rankings>
 
 		<top_winners>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Winners</title>
 			<pos_x>-47.9</pos_x>
 			<pos_y>47.5</pos_y>
@@ -944,7 +944,7 @@
 		</top_winners>
 
 		<most_records>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Most Records</title>
 			<pos_x>-32.3</pos_x>
 			<pos_y>47.5</pos_y>
@@ -954,7 +954,7 @@
 		</most_records>
 
 		<most_finished>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Most Finished</title>
 			<pos_x>-16.7</pos_x>
 			<pos_y>47.5</pos_y>
@@ -964,7 +964,7 @@
 		</most_finished>
 
 		<top_playtime>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Hours Played</title>
 			<pos_x>-1.1</pos_x>
 			<pos_y>47.5</pos_y>
@@ -984,7 +984,7 @@
 		</top_donators>
 
 		<top_nations>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Nations</title>
 			<pos_x>30.1</pos_x>
 			<pos_y>47.5</pos_y>
@@ -994,7 +994,7 @@
 		</top_nations>
 
 		<top_tracks>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Tracks</title>
 			<pos_x>47.8</pos_x>
 			<pos_y>17.6</pos_y>
@@ -1004,7 +1004,7 @@
 		</top_tracks>
 
 		<top_voters>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Voters</title>
 			<pos_x>47.8</pos_x>
 			<pos_y>1.5</pos_y>
@@ -1014,7 +1014,7 @@
 		</top_voters>
 
 		<top_visitors>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<title>Top Visitors</title>
 			<pos_x>47.8</pos_x>
 			<pos_y>-14.6</pos_y>
