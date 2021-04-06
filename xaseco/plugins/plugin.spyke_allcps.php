@@ -172,7 +172,7 @@ function checkpoint($aseco, $command)
         $deditime = $dedi_db['Challenge']['Records'][0]['Checks']; //bestdedidiff
         $dedidiff = $timeref - $deditime[$cp];
         // $aseco->console('[plugin.spyke_allcps.php] dedi top '.$dedidiff.':'.implode(',', $dedi_db['Challenge']['Records'][0]['Checks']));
-        if ($dedidiff < 0) {
+        if ($dedidiff <= 0) {
             $dedibestof = "-" . cp_formatTime(abs($dedidiff));
             $dedibestof = $negative_cp_color . $dedibestof;
         } else {
