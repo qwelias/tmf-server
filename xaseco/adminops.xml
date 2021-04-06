@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <lists>
 	<titles>
-		<masteradmin>SuperAdmin</masteradmin>
-		<admin>Admin</admin>
+		<masteradmin>NiceMan</masteradmin>
+		<admin>R</admin>
 		<operator>Operator</operator>
 	</titles>
 
@@ -10,9 +10,6 @@
 <!-- format:
 		<tmlogin>YOUR_ADMIN_LOGIN</tmlogin> <ipaddress></ipaddress>
 -->
-		<tmlogin>qwemaze</tmlogin>
-		<tmlogin>muscen</tmlogin>
-
 		<tmlogin>thomasknappe</tmlogin>
 		<tmlogin>mi_me</tmlogin>
 		<tmlogin>speedyjoe97</tmlogin>
@@ -21,20 +18,23 @@
 		<tmlogin>scottboard</tmlogin>
 		<tmlogin>dh1806</tmlogin>
 		<tmlogin>freddy_mountain</tmlogin>
+		<tmlogin>gay__</tmlogin>
+		<tmlogin>ken</tmlogin>
+		<tmlogin>roobah</tmlogin>
+		<tmlogin>judde</tmlogin>
+		<tmlogin>sandman6668</tmlogin>
+		<tmlogin>forgot10</tmlogin>
 	</admins>
 
 	<operators>
 <!-- format:
 		<tmlogin>YOUR_OPERATOR_LOGIN</tmlogin> <ipaddress></ipaddress>
 -->
-		<tmlogin>qwemaze</tmlogin>
-		<tmlogin>muscen</tmlogin>
-
 		<tmlogin>dawidnh6</tmlogin>
 		<tmlogin>72_russia</tmlogin>
-		<tmlogin>mi_me</tmlogin>
-		<tmlogin>thomasknappe</tmlogin>
-		<tmlogin>speedyjoe97</tmlogin>
+		<!-- <tmlogin>mi_me</tmlogin> -->
+		<!-- <tmlogin>thomasknappe</tmlogin> -->
+		<!-- <tmlogin>speedyjoe97</tmlogin> -->
 		<tmlogin>kybermato</tmlogin>
 		<tmlogin>esuhl</tmlogin>
 		<tmlogin>marius05</tmlogin>
@@ -62,24 +62,18 @@
 		<tmlogin>lomz</tmlogin>
 		<tmlogin>besady</tmlogin>
 		<tmlogin>racingguy43</tmlogin>
-		<tmlogin>roobah</tmlogin>
 		<tmlogin>101commman</tmlogin>
 		<tmlogin>legionmg</tmlogin>
 		<tmlogin>xdmwx</tmlogin>
 		<tmlogin>25.01.1994</tmlogin>
-		<tmlogin>muscen</tmlogin>
 		<tmlogin>demis</tmlogin>
 		<tmlogin>banlieu451</tmlogin>
-		<tmlogin>judde</tmlogin>
 		<tmlogin>--c-ronos---c-rizis</tmlogin>
 		<tmlogin>warcool</tmlogin>
 		<tmlogin>zymeth</tmlogin>
-		<tmlogin>sandman6668</tmlogin>
 		<tmlogin>mighty-mike</tmlogin>
 		<tmlogin>anto_bat</tmlogin>
 		<tmlogin>alik</tmlogin>
-		<tmlogin>forgot10</tmlogin>
-		<tmlogin>scottboard</tmlogin>
 		<tmlogin>nitro_x</tmlogin>
 		<tmlogin>nick122020</tmlogin>
 		<tmlogin>ed2ward</tmlogin>
@@ -88,11 +82,9 @@
 		<tmlogin>warrus</tmlogin>
 		<tmlogin>boostre</tmlogin>
 		<tmlogin>lococorona</tmlogin>
-		<tmlogin>gay__</tmlogin>
 		<tmlogin>terraherz</tmlogin>
 		<tmlogin>finneid</tmlogin>
 		<tmlogin>lazycat</tmlogin>
-		<tmlogin>dh1806</tmlogin>
 	</operators>
 
 	<admin_abilities>
@@ -184,8 +176,8 @@
 		<cleanignores>false</cleanignores>
 		<addadmin>false</addadmin>
 		<removeadmin>false</removeadmin>
-		<addop>true</addop>
-		<removeop>true</removeop>
+		<addop>false</addop>
+		<removeop>false</removeop>
 		<listmasters>true</listmasters>
 		<listadmins>true</listadmins>
 		<listops>true</listops>
