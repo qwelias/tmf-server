@@ -106,8 +106,8 @@ function checkpoint($aseco, $command)
     if (empty($localperso)) {
         $persolocalbest = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] local pb '.implode(',', $localperso));
         $timediff = $timeref - $localperso[$cp]; //individuallocaldiff
+        $aseco->console('[plugin.spyke_allcps.php] local pb '.$timediff.':'.implode(',', $localperso));
         if ($timediff <= 0) {
             $persolocalbest = "-" . formatTime(abs($timediff));
             $persolocalbest = $negative_cp_color . $persolocalbest;
@@ -123,8 +123,8 @@ function checkpoint($aseco, $command)
     if (empty($local->checks[$cp])) {
         $best = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] local top '.implode(',', $local->checks));
         $bestdiff = $timeref - $local->checks[$cp]; //bestlocaldiff
+        $aseco->console('[plugin.spyke_allcps.php] local top '.$bestdiff.':'.implode(',', $local->checks));
         if ($bestdiff <= 0) {
             $best = "-" . formatTime(abs($bestdiff));
             $best = $negative_cp_color . $best;
@@ -137,9 +137,9 @@ function checkpoint($aseco, $command)
     if (empty($dedi_db['Challenge']['Records'][0]['Checks'])) {
         $dedibestof = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] dedi top '.implode(',', $dedi_db['Challenge']['Records'][0]['Checks']));
         $deditime = $dedi_db['Challenge']['Records'][0]['Checks']; //bestdedidiff
         $dedidiff = $timeref - $deditime[$cp];
+        $aseco->console('[plugin.spyke_allcps.php] dedi top '.$dedidiff.':'.implode(',', $dedi_db['Challenge']['Records'][0]['Checks']));
         if ($dedidiff < 0) {
             $dedibestof = "-" . formatTime(abs($dedidiff));
             $dedibestof = $negative_cp_color . $dedibestof;
@@ -152,8 +152,8 @@ function checkpoint($aseco, $command)
     if (empty($dediperso)) {
         $persodedibest = 's$f70none';
     } else {
-        $aseco->console('[plugin.spyke_allcps.php] dedi pb '.implode(',', $dediperso));
         $dedidiff = $timeref - $dediperso[$cp]; //individualdedidiff
+        $aseco->console('[plugin.spyke_allcps.php] dedi pb '.$dedidiff.':'.implode(',', $dediperso));
         if ($dedidiff < 0) {
             $persodedibest = "-" . formatTime(abs($dedidiff));
             $persodedibest = $negative_cp_color . $persodedibest;
