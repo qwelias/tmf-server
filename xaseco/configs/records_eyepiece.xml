@@ -271,7 +271,7 @@
 				<pos_x>-64.7</pos_x>
 				<pos_y>23.65</pos_y>
 				<entries>12</entries>
-				<topcount>3</topcount>
+				<topcount>5</topcount>
 			</rounds>
 
 			<time_attack>
@@ -279,7 +279,7 @@
 				<pos_x>-64.7</pos_x>
 				<pos_y>23.65</pos_y>
 				<entries>16</entries>
-				<topcount>3</topcount>
+				<topcount>5</topcount>
 			</time_attack>
 
 			<team>
@@ -287,7 +287,7 @@
 				<pos_x>-64.7</pos_x>
 				<pos_y>23.65</pos_y>
 				<entries>12</entries>
-				<topcount>3</topcount>
+				<topcount>5</topcount>
 			</team>
 
 			<laps>
@@ -295,7 +295,7 @@
 				<pos_x>-64.7</pos_x>
 				<pos_y>23.65</pos_y>
 				<entries>12</entries>
-				<topcount>3</topcount>
+				<topcount>5</topcount>
 			</laps>
 
 			<stunts>						<!-- Unsupported by Dedimania, leave as is! -->
