@@ -147,16 +147,16 @@
     <cheater_action>0</cheater_action>
     <script_timeout>60</script_timeout>
 
-    <show_min_recs>8</show_min_recs>
+    <show_min_recs>0</show_min_recs>
     <!-- 2 = full report, 1 = only track record, 0 = none -->
     <!-- add 4 to show the report in the TMF message      -->
     <!-- window instead of the main chat window           -->
-    <show_recs_before>2</show_recs_before>
+    <show_recs_before>0</show_recs_before>
     <!-- 2 = full report, 1 = only top-5, 0 = none        -->
     <!-- add 4 to show the report in the TMF message      -->
     <!-- window instead of the main chat window           -->
-    <show_recs_after>2</show_recs_after>
-    <show_recs_range>True</show_recs_range>
+    <show_recs_after>0</show_recs_after>
+    <show_recs_range>False</show_recs_range>
     <!-- 2 = in TMF message window, 1 = in chat, 0 = none -->
     <show_tmxrec>1</show_tmxrec>
     <!-- 2 = in TMF message window, 1 = in chat, 0 = none -->
