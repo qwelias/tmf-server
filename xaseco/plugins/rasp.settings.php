@@ -114,7 +114,7 @@ $maxavg = 10;
 
 //Specifies how large the track history buffer is.
 //If a track that is in the buffer gets requested, it won't be jukeboxed.
-$buffersize = 0;
+$buffersize = 1;
 
 //Specifies the required vote ratio for a TMX /add request to be successful.
 $tmxvoteratio = 0.66;
