@@ -7,22 +7,22 @@
 		<!-- Dedimania communication link, do not modify this! -->
 		<url>http://dedimania.net:8002/Dedimania</url>
 		<!-- Log Dedimania news in logfile? -->
-		<log_news>True</log_news>
+		<log_news>False</log_news>
 		<!-- Show welcome message in chat?  -->
-		<show_welcome>True</show_welcome>
+		<show_welcome>False</show_welcome>
 		<!-- Minimum number of records you'd always like to see at -->
 		<!-- the start and end of tracks, and with /dedilive (-2)  -->
-		<show_min_recs>8</show_min_recs>
+		<show_min_recs>0</show_min_recs>
 		<!-- Display existing records at start of a new track?     -->
 		<!-- 2 = in message window, 1 = in chat, 0 = none          -->
-		<show_recs_before>1</show_recs_before>
+		<show_recs_before>0</show_recs_before>
 		<!-- Display (possibly) updated records at end of a track? -->
 		<!-- 2 = in message window, 1 = in chat, 0 = none          -->
-		<show_recs_after>1</show_recs_after>
+		<show_recs_after>0</show_recs_after>
 		<!-- Display records range if there are no new records?  -->
-		<show_recs_range>True</show_recs_range>
+		<show_recs_range>False</show_recs_range>
 		<!-- Do you want XASECO to display newly driven records? -->
-		<display_recs>True</display_recs>
+		<display_recs>False</display_recs>
 		<!-- Show logins on TMF for players in /dedirecs ?       -->
 		<show_rec_logins>True</show_rec_logins>
 		<!-- Display records in TMF message window or in chat?   -->
