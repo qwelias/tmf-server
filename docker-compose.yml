@@ -7,16 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - gamedata:/GameData
-      - ./xaseco/adminops.xml:/adminops.xml
-      - ./xaseco/config.xml:/config.xml
-      - ./xaseco/localdatabase.xml:/localdatabase.xml
-      - ./xaseco/dedimania.xml:/dedimania.xml
-      - ./xaseco/plugins.xml:/plugins.xml
-      - ./xaseco/bestcps.xml:/bestcps.xml
-      - ./xaseco/fufi_menu_config.xml:/fufi_menu_config.xml
-      - ./xaseco/records_eyepiece.xml:/records_eyepiece.xml
-      - ./xaseco/spyke_allcps.xml:/spyke_allcps.xml
-      - ./xaseco/nouse_betting_config.xml:/nouse_betting_config.xml
     ports:
       - 8002:8002
   dedicated:
