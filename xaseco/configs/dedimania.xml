@@ -22,7 +22,7 @@
 		<!-- Display records range if there are no new records?  -->
 		<show_recs_range>False</show_recs_range>
 		<!-- Do you want XASECO to display newly driven records? -->
-		<display_recs>False</display_recs>
+		<display_recs>True</display_recs>
 		<!-- Show logins on TMF for players in /dedirecs ?       -->
 		<show_rec_logins>True</show_rec_logins>
 		<!-- Display records in TMF message window or in chat?   -->
