@@ -16,7 +16,6 @@ services:
     volumes:
       - gamedata:/GameData
       - ./dedicated/dedicated.xml:/GameData/Config/dedicated.xml
-      - ./dedicated/match_settings_autosave.xml:/GameData/Tracks/MatchSettings/match_settings_autosave.xml
     expose:
       - 2350 # server
       - 3450 # p2p
