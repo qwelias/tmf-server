@@ -127,7 +127,7 @@ $tmxvoteratio = 0.66;
 //There must be full write permissions on these folders.
 //In linux the command will be:  chmod 777.
 //Regardless of OS, use the / character for pathing.
-$tmxdir = 'Challenges/TMX';
+$tmxdir = 'Challenges/dynmaps';
 $tmxtmpdir = 'Challenges/TMXtmp';
 
 //##################################################################

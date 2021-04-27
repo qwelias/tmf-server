@@ -14,23 +14,7 @@
 	</filter>
 
 	<challenge>
-		<file>Campaigns\United\Race\Island\Red\IslandD1.Challenge.Gbx</file>
-		<ident>A7s5IpC7XfDWknn1PXKKBKCD2W1</ident>
-	</challenge>
-	<challenge>
-		<file>Campaigns\United\Race\Island\Red\IslandD2.Challenge.Gbx</file>
-		<ident>E7XQEP4oT4qP8NYeOn81YPYgEO5</ident>
-	</challenge>
-	<challenge>
-		<file>Campaigns\United\Race\Island\Red\IslandD3.Challenge.Gbx</file>
-		<ident>rK_OGHHTE9GdMqSpPBOqvkjleq5</ident>
-	</challenge>
-	<challenge>
-		<file>Campaigns\United\Race\Island\Red\IslandD4.Challenge.Gbx</file>
-		<ident>ST387vLgNaX4HbasZzXruPq3kzh</ident>
-	</challenge>
-	<challenge>
-		<file>Campaigns\United\Race\Island\Red\IslandD5.Challenge.Gbx</file>
+		<file>Challenges\dynmaps\GC4~$503Noskrens.Challenge.Gbx</file>
 		<ident>PTOfMzMx8Sdrk4by2lJFqf9vtJl</ident>
 	</challenge>
 </playlist>

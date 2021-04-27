@@ -22,6 +22,7 @@
 	<plugin>plugin.track.php</plugin>
 	<plugin>plugin.checkpoints.php</plugin>
 	<plugin>plugin.dedimania.php</plugin>
+	<plugin>askuri.dynmaps.php</plugin>
 	<plugin>plugin.rasp.php</plugin>
 	<plugin>plugin.rasp_jukebox.php</plugin>
 	<plugin>plugin.rasp_chat.php</plugin>

@@ -164,6 +164,7 @@ $rounds_finishpanel = true;
 
 function chat_admin($aseco, $command) {
 	global $jukebox;  // from plugin.rasp_jukebox.php
+	global $dyn; // from askuri.dynmaps.php
 
 	$admin = $command['author'];
 	$login = $admin->login;
@@ -2667,34 +2668,44 @@ function chat_admin($aseco, $command) {
 			if (array_key_exists($tid, $admin->tracklist)) {
 				$name = stripColors($admin->tracklist[$tid]['name']);
 				$filename = $aseco->server->trackdir . $admin->tracklist[$tid]['filename'];
-				$rtn = $aseco->client->query('RemoveChallenge', $filename);
-				if (!$rtn) {
-					trigger_error('[' . $aseco->client->getErrorCode() . '] RemoveChallenge - ' . $aseco->client->getErrorMessage(), E_USER_WARNING);
-					$message = formatText('{#server}> {#error}Error removing track {#highlite}$i {1} {#error}!',
-					                      $filename);
-					$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
-				} else {
-					$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}removes track: {#highlite}{3}',
-					                      $chattitle, $admin->nickname, $name);
-					if ($command['params'][0] == 'erase' && is_file($filename)) {
-						if (unlink($filename)) {
-							$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}erases track: {#highlite}{3}',
-							                      $chattitle, $admin->nickname, $name);
-						} else {
-							$message = '{#server}> {#error}Delete file {#highlite}$i ' . $filename . '{#error} failed';
-							$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
-							$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}erase track failed: {#highlite}{3}',
-							                      $chattitle, $admin->nickname, $name);
-						}
-					}
-					// show chat message
-					$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
-					// log console message
-					$aseco->console('{1} [{2}] ' . $command['params'][0] . 'd track {3}', $logtitle, $login, stripColors($name, false));
 
-					// throw 'tracklist changed' event
-					$aseco->releaseEvent('onTracklistChanged', array('remove', $filename));
+				if ($command['params'][0] == 'remove')
+				{
+					if (rename($filename, $aseco->server->trackdir . 'Challenges/removed/' . explode('/',$admin->tracklist[$tid]['filename'])[count(explode('/',$admin->tracklist[$tid]['filename']))-1]))
+					{
+
+							$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}removed track: {#highlite}{3}', $chattitle, $admin->nickname, $name);
+					}
+					else
+					{
+						// didn't work.
+						$message = '{#server}> {#error}Moving file {#highlite}$i ' . $filename . '{#error} failed';
+						$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
+						$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}remove track failed: {#highlite}{3}', $chattitle, $admin->nickname, $name);
+					}
+
 				}
+
+				if ($command['params'][0] == 'erase' && is_file($filename)) {
+					if (unlink($filename)) {
+						$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}erases track: {#highlite}{3}',
+											  $chattitle, $admin->nickname, $name);
+					} else {
+						$message = '{#server}> {#error}Delete file {#highlite}$i ' . $filename . '{#error} failed';
+						$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
+						$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}erase track failed: {#highlite}{3}',
+											  $chattitle, $admin->nickname, $name);
+					}
+				}
+
+				// show chat message
+				$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
+				// log console message
+				$aseco->console('{1} [{2}] ' . $command['params'][0] . 'd track {3}', $logtitle, $login, stripColors($name, false));
+
+				// throw 'tracklist changed' event
+				$aseco->releaseEvent('onTracklistChanged', array('remove', $filename));
+
 			} else {
 				$message = $rasp->messages['JUKEBOX_NOTFOUND'][0];
 				$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);

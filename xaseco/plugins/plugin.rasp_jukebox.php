@@ -9,6 +9,7 @@
  * including TMX searches.
  * Finally, handles the voting and passing for chat-based votes.
  * Updated by Xymph
+ * Updated by askuri for DynMaps 0.1.0+
  *
  * Dependencies: requires plugin.rasp_votes.php, plugin.track.php, chat.records2.php;
  *               used by plugin.rasp_votes.php
@@ -19,6 +20,7 @@ require_once('includes/tmxinfosearcher.inc.php');  // provides TMX searches
 
 // Register events and chat commands with aseco
 Aseco::registerEvent('onSync', 'init_jbhistory');
+Aseco::registerEvent('onSync', 'initChallengesCache');
 Aseco::registerEvent('onEndRace', 'rasp_endrace');
 Aseco::registerEvent('onNewChallenge', 'rasp_newtrack');
 
@@ -33,6 +35,8 @@ Aseco::registerEvent('onNewChallenge', 'rasp_newtrack');
 Aseco::registerEvent('onPlayerManialinkPageAnswer', 'event_jukebox');
 
 Aseco::addChatCommand('list', 'Lists tracks currently on the server (see: /list help)');
+
+/* Currently not supported by dynmaps
 Aseco::addChatCommand('jukebox', 'Sets track to be played next (see: /jukebox help)');
 if (ABBREV_COMMANDS) {
 	Aseco::addChatCommand('jb', 'Sets a track to be played next (see: /jb help)');
@@ -47,6 +51,7 @@ Aseco::addChatCommand('add', 'Adds a track directly from TMX (<ID> {sec})');
 Aseco::addChatCommand('y', 'Votes Yes for a TMX track or chat-based vote');
 Aseco::addChatCommand('history', 'Shows the 10 most recently played tracks');
 Aseco::addChatCommand('xlist', 'Lists tracks on TMX (see: /xlist help)');
+*/
 
 // called @ onEndRace
 function rasp_endrace($aseco, $data) {
@@ -144,40 +149,38 @@ function rasp_endrace($aseco, $data) {
 		}
 
 		// select jukebox/TMX track as next challenge
-		$rtn = $aseco->client->query('ChooseNextChallenge', $next['FileName']);
-		if (!$rtn) {
-			trigger_error('[' . $aseco->client->getErrorCode() . '] ChooseNextChallenge - ' . $aseco->client->getErrorMessage(), E_USER_WARNING);
-		} else {
-			// check for TMF United
-			if ($aseco->server->getGame() == 'TMF' && $aseco->server->packmask != 'Stadium') {
-				// report track change from TMX or jukebox
-				if ($next['tmx']) {
-					$logmsg = '{RASP Jukebox} Setting Next Challenge to [' . $next['Env'] . '] ' . stripColors($next['Name'], false) . ', file downloaded from ' . $next['source'];
-					// remember it for later removal
-					$tmxplaying = $next['FileName'];
-				} else {
-					$logmsg = '{RASP Jukebox} Setting Next Challenge to [' . $next['Env'] . '] ' . stripColors($next['Name'], false) . ', requested by ' . stripColors($next['Nick'], false);
-				}
-				$message = formatText($rasp->messages['JUKEBOX_NEXTENV'][0],
-				                      $next['Env'], stripColors($next['Name']), stripColors($next['Nick']));
-			} else {  // TMN(F)
-				// report track change from TMX or jukebox
-				if ($next['tmx']) {
-					$logmsg = '{RASP Jukebox} Setting Next Challenge to ' . stripColors($next['Name'], false) . ', file downloaded from ' . $next['source'];
-					// remember it for later removal
-					$tmxplaying = $next['FileName'];
-				} else {
-					$logmsg = '{RASP Jukebox} Setting Next Challenge to ' . stripColors($next['Name'], false) . ', requested by ' . stripColors($next['Nick'], false);
-				}
-				$message = formatText($rasp->messages['JUKEBOX_NEXT'][0],
-				                      stripColors($next['Name']), stripColors($next['Nick']));
+		$aseco->client->query('AddChallenge', $next['FileName']);
+		$aseco->client->query('ChooseNextChallenge', $next['FileName']);
+
+		// check for TMF United
+		if ($aseco->server->getGame() == 'TMF' && $aseco->server->packmask != 'Stadium') {
+			// report track change from TMX or jukebox
+			if ($next['tmx']) {
+				$logmsg = '{RASP Jukebox} Setting Next Challenge to [' . $next['Env'] . '] ' . stripColors($next['Name'], false) . ', file downloaded from ' . $next['source'];
+				// remember it for later removal
+				$tmxplaying = $next['FileName'];
+			} else {
+				$logmsg = '{RASP Jukebox} Setting Next Challenge to [' . $next['Env'] . '] ' . stripColors($next['Name'], false) . ', requested by ' . stripColors($next['Nick'], false);
 			}
-			$aseco->console_text($logmsg);
-			if ($jukebox_in_window && function_exists('send_window_message'))
-				send_window_message($aseco, $message, true);
-			else
-				$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
+			$message = formatText($rasp->messages['JUKEBOX_NEXTENV'][0],
+								  $next['Env'], stripColors($next['Name']), stripColors($next['Nick']));
+		} else {  // TMN(F)
+			// report track change from TMX or jukebox
+			if ($next['tmx']) {
+				$logmsg = '{RASP Jukebox} Setting Next Challenge to ' . stripColors($next['Name'], false) . ', file downloaded from ' . $next['source'];
+				// remember it for later removal
+				$tmxplaying = $next['FileName'];
+			} else {
+				$logmsg = '{RASP Jukebox} Setting Next Challenge to ' . stripColors($next['Name'], false) . ', requested by ' . stripColors($next['Nick'], false);
+			}
+			$message = formatText($rasp->messages['JUKEBOX_NEXT'][0],
+								  stripColors($next['Name']), stripColors($next['Nick']));
 		}
+		$aseco->console_text($logmsg);
+		if ($jukebox_in_window && function_exists('send_window_message'))
+			send_window_message($aseco, $message, true);
+		else
+			$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 	} else {
 		// reset just in case current track was replayed
 		$replays_counter = 0;

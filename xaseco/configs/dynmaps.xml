@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dynmaps>
+	<!-- Tracks count to autojuke. Leave as is if you don't know what you do -->
+	<buffer>5</buffer>
+
+	<!-- Reload challenge-infocache on startup -->
+	<!-- You can manually reload it ingame -->
+	<!-- Collecting all information can take more than a minute! -->
+	<!-- If false, the last saved cache will be taken -->
+	<startup_cache_reload>false</startup_cache_reload>
+
+	<!-- Shuffle the tracks upon refreshing challenge cache and on startup -->
+	<!-- useful feature to prevent an alphabetic order of tracks or when the same tracks get played over and over on server startup -->
+	<shuffle_cache>true</shuffle_cache>
+</dynmaps>
