@@ -1,3 +1,6 @@
 *.patch
 .env
 /xaseco-1.16
+/arch
+/fast
+node_modules
