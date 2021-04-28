@@ -165,6 +165,8 @@ class dyn {
             glob($this->mapdir.'Challenges/dynmaps/.*.[Cc]hallenge.[Gg]bx')
         );
 
+        $this->aseco->console('[DynMaps] found '.count($tracks).' tracks');
+
 		$list = [];
 
 		$i = 0;
