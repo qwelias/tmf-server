@@ -160,7 +160,7 @@ class dyn {
 	// used by rasp.funcs.php. Emulates a "GetChallengeList" request to dedicated server
 	public function emulateGetChallengeList() {
 
-		$tracks = glob($this->mapdir.'Challenges/dynmaps/{,.}*.[Cc]hallenge.[Gg]bx', GLOB_BRACE);
+		$tracks = glob($this->mapdir.'Challenges/dynmaps/{*,.}*.[Cc]hallenge.[Gg]bx', GLOB_BRACE);
 
 		$list = [];
 
