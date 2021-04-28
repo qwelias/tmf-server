@@ -161,6 +161,7 @@ class dyn {
 	public function emulateGetChallengeList() {
 
 		$tracks = glob($this->mapdir.'Challenges/dynmaps/*.[Cc]hallenge.[Gg]bx');
+        $this->aseco->console('[DynMaps] found tracks \n'.implode('\n', $tracks));
 
 		$list = [];
 
