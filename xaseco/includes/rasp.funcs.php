@@ -109,8 +109,10 @@ function getChallengesCache($aseco, $reload = false) {
 
 		// Store cache in file as json for next xaseco start
         $contents = json_encode($challengeListCache);
-        $aseco->console_text('challenges cache json length: ' . strlen($contents));
-		file_put_contents($dyn->mapdir.'/dyn_infocache.json', $contents);
+        if (!$contents) {
+            $aseco->console_text('challenges cache json error: ' . json_last_error_msg());
+        }
+        file_put_contents($dyn->mapdir.'/dyn_infocache.json', $contents);
 	}
 
 	return $challengeListCache;
