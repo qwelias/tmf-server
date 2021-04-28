@@ -108,7 +108,7 @@ function getChallengesCache($aseco, $reload = false) {
 			$aseco->console_text('challenges cache loaded: ' . count($challengeListCache));
 
 		// Store cache in file as json for next xaseco start
-        $contents = json_encode($challengeListCache);
+        $contents = json_encode(utf8ize($challengeListCache));
         if (!$contents) {
             $aseco->console_text('challenges cache json error: ' . json_last_error_msg());
         }
@@ -118,6 +118,16 @@ function getChallengesCache($aseco, $reload = false) {
 	return $challengeListCache;
 }  // getChallengesCache
 
+function utf8ize( $mixed ) {
+    if (is_array($mixed)) {
+        foreach ($mixed as $key => $value) {
+            $mixed[$key] = utf8ize($value);
+        }
+    } elseif (is_string($mixed)) {
+        return mb_convert_encoding($mixed, "UTF-8", "UTF-8");
+    }
+    return $mixed;
+}
 
 // calls function get_recs() from chat.records2.php
 function getAllChallenges($player, $wildcard, $env) {
