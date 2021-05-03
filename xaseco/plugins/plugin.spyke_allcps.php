@@ -9,8 +9,8 @@ Aseco::registerEvent('onSync', 'undef_sync');
 Aseco::registerEvent('onCheckpoint', 'checkpoint');
 Aseco::registerEvent('onNewChallenge', 'spyke_ingame_record');
 Aseco::registerEvent('onBeginRound', 'spyke_ingame_record');
-Aseco::registerEvent('onPlayerFinish', 'spyke_manialink_finish');
-Aseco::registerEvent('onPlayerFinish', 'spyke_ingame_record');
+// Aseco::registerEvent('onPlayerFinish', 'spyke_manialink_finish');
+// Aseco::registerEvent('onPlayerFinish', 'spyke_ingame_record');
 Aseco::registerEvent('onEndRound', 'spyke_manialink_end');
 Aseco::registerEvent('onStartup', 'info');
 
