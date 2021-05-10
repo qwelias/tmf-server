@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <lists>
 	<titles>
-		<masteradmin>ALLROUNDER</masteradmin>
-		<admin>TRUE COMRADE</admin>
-		<operator>COMRADE</operator>
+		<masteradmin>nice</masteradmin>
+		<admin>nice admin</admin>
+		<operator>nice oper</operator>
 	</titles>
 
 	<admins>
@@ -37,10 +37,9 @@
 		<tmlogin>YOUR_OPERATOR_LOGIN</tmlogin> <ipaddress></ipaddress>
 -->
 		<tmlogin>dawidnh6</tmlogin>
+		<tmlogin>rudi0800</tmlogin>
+		<tmlogin>moe321</tmlogin>
 		<tmlogin>72_russia</tmlogin>
-		<!-- <tmlogin>mi_me</tmlogin> -->
-		<!-- <tmlogin>thomasknappe</tmlogin> -->
-		<!-- <tmlogin>speedyjoe97</tmlogin> -->
 		<tmlogin>kybermato</tmlogin>
 		<tmlogin>esuhl</tmlogin>
 		<tmlogin>marius05</tmlogin>
