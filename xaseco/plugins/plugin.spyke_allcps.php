@@ -4,13 +4,13 @@
  *    Checkpoint info plugin for XAseco by Spyker, 2011
  *    Configuration file: spyke_allcps.xml
  *    Copy this file to xaseco plugins folder
+ *
+ *    Modified by maze
  */
 Aseco::registerEvent('onSync', 'undef_sync');
 Aseco::registerEvent('onCheckpoint', 'checkpoint');
 Aseco::registerEvent('onNewChallenge', 'spyke_ingame_record');
 Aseco::registerEvent('onBeginRound', 'spyke_ingame_record');
-// Aseco::registerEvent('onPlayerFinish', 'spyke_manialink_finish');
-// Aseco::registerEvent('onPlayerFinish', 'spyke_ingame_record');
 Aseco::registerEvent('onEndRound', 'spyke_manialink_end');
 Aseco::registerEvent('onStartup', 'info');
 
@@ -47,7 +47,7 @@ function cp_formatTime ($MwTime, $hsec = true) {
 	}
 }
 
-define('ALL_CPS_VERSION', '1.3');
+define('ALL_CPS_VERSION', '2');
 
 function undef_sync($aseco)
 {
@@ -71,10 +71,9 @@ function info($aseco, $command)
 
 function spyke_ingame_record($aseco, $player)
 {
-    global $dedi_db, $local, $info,
+    global $dedi_db, $info,
         $positive_cp_color, $negative_cp_color,
-        $rank_color, $maxrecs, $show_time,
-        $show_custom_version, $show_dedimania;
+        $rank_color, $maxrecs, $show_time;
 
     if (IN_XASECO) {
         global $dedi_db;
@@ -89,42 +88,28 @@ function spyke_ingame_record($aseco, $player)
         $rank++;
     }
 
-    $rank = 0;
-    while ($rank <= $aseco->server->records->count()) {
-        $localdata['login'] = $aseco->server->records->getRecord($rank)->player->login;
-        $localarray[$localdata['login']] = array("checkpoints" => $aseco->server->records->getRecord($rank, true)->checks);
-        $rank++;
-    }
-
-    $local = $aseco->server->records->getRecord(0, true);
-    unset($info->dedicheck, $info->localcheck);
+    unset($info->dedicheck);
     $info->dedicheck = $dediarray;
-    $info->localcheck = $localarray;
 
     $settings = simplexml_load_file('spyke_allcps.xml');
     $positive_cp_color = $settings->cpcolor->positive_cp_color;
     $negative_cp_color = $settings->cpcolor->negative_cp_color;
     $rank_color = $settings->cpcolor->rank_color;
     $show_time = $settings->show_time;
-    $show_custom_version = $settings->show_custom_version;
     $show_dedimania = $settings->show_dedimania;
 }
 
 
 function checkpoint($aseco, $command)
 {
-    global $aseco, $dedi_db, $local,
+    global $aseco, $dedi_db,
         $positive_cp_color, $negative_cp_color,
-        $info, $rank_color, $show_time, $maxrecs,
-        $show_custom_version, $show_dedimania;
+        $info, $rank_color, $show_time, $maxrecs;
 
 
     unset($deditemp);
-    unset($localtemp);
     unset($dediperso);
-    unset($localperso);
     unset($dedirank);
-    unset($localrank);
 
     $login = $command[1];
     $timeref = $command[2];
@@ -132,42 +117,11 @@ function checkpoint($aseco, $command)
     $show_time = 0 + $show_time;
     // $aseco->console('[plugin.spyke_allcps.php] cp '.$cp.':'.$timeref);
 
-    $localtemp = $info->localcheck[$login];
-    $localperso = $localtemp['checkpoints'];
-
-    if (empty($localperso)) {
-        $persolocalbest = 's$f70none';
-    } else {
-        $timediff = $timeref - $localperso[$cp]; //individuallocaldiff
-        // $aseco->console('[plugin.spyke_allcps.php] local pb '.$timediff.':'.implode(',', $localperso));
-        if ($timediff <= 0) {
-            $persolocalbest = "-" . cp_formatTime(abs($timediff));
-            $persolocalbest = $negative_cp_color . $persolocalbest;
-        } else {
-            $persolocalbest = "+" . cp_formatTime(abs($timediff));
-            $persolocalbest = $positive_cp_color . $persolocalbest;
-        }
-    }
-
     $deditemp = $info->dedicheck[$login];
     $dediperso = $deditemp['checkpoints'];
 
-    if (empty($local->checks[$cp])) {
-        $best = 's$f70none';
-    } else {
-        $bestdiff = $timeref - $local->checks[$cp]; //bestlocaldiff
-        // $aseco->console('[plugin.spyke_allcps.php] local top '.$bestdiff.':'.implode(',', $local->checks));
-        if ($bestdiff <= 0) {
-            $best = "-" . cp_formatTime(abs($bestdiff));
-            $best = $negative_cp_color . $best;
-        } else {
-            $best = "+" . cp_formatTime(abs($bestdiff));
-            $best = $positive_cp_color . $best;
-        }
-    }
-
     if (empty($dedi_db['Challenge']['Records'][0]['Checks'])) {
-        $dedibestof = 's$f70none';
+        $dedibestof = false;
     } else {
         $deditime = $dedi_db['Challenge']['Records'][0]['Checks']; //bestdedidiff
         $dedidiff = $timeref - $deditime[$cp];
@@ -182,7 +136,7 @@ function checkpoint($aseco, $command)
     }
 
     if (empty($dediperso)) {
-        $persodedibest = 's$f70none';
+        $persodedibest = false;
     } else {
         $dedidiff = $timeref - $dediperso[$cp]; //individualdedidiff
         // $aseco->console('[plugin.spyke_allcps.php] dedi pb '.$dedidiff.':'.implode(',', $dediperso));
@@ -195,53 +149,19 @@ function checkpoint($aseco, $command)
         }
     }
 
-    if ($show_custom_version == "true") {
-        $xmltext = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xmltext .= '<manialink id="' . $info->manialink_id1 . '"></manialink>';
-        $aseco->client->query("SendDisplayManialinkPage", $xmltext, 0, false);
-        $xmlchrono = $info->getManialinkchrono($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $show_dedimania);
-        $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xmlchrono, $show_time, false);
-    } elseif ($show_custom_version == "false") {
-        $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xmlchrono .= '<manialink id="' . $info->manialink_id2 . '"></manialink>';
-        $aseco->client->query("SendDisplayManialinkPage", $xmlchrono, 0, false);
-        $xmltext = $info->getManialinktext($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $show_dedimania);
-        $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xmltext, $show_time, false);
-    } else {
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xml .= '<manialink id="' . $info->manialink_id1 . '"></manialink>';
-        $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xml, 0, false);
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xml .= '<manialink id="' . $info->manialink_id2 . '"></manialink>';
-        $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xml, 0, false);
-    }
+    $xmltext = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xmltext .= '<manialink id="' . $info->manialink_id1 . '"></manialink>';
+    $aseco->client->query("SendDisplayManialinkPage", $xmltext, 0, false);
+    $xmlchrono = $info->getManialinkchrono($cp, $dedibestof, $persodedibest);
+    $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xmlchrono, $show_time, false);
 }
 
 function spyke_manialink_end($aseco, $command)
 {
-
     global $info;
     $xmltext = '<?xml version="1.0" encoding="UTF-8"?>';
     $xmltext .= '<manialink id="' . $info->manialink_id1 . '"></manialink>';
     $aseco->client->query("SendDisplayManialinkPage", $xmltext, 0, false);
-
-    $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
-    $xmlchrono .= '<manialink id="' . $info->manialink_id2 . '"></manialink>';
-    $aseco->client->query("SendDisplayManialinkPage", $xmlchrono, 0, false);
-}
-
-function spyke_manialink_finish($aseco, $command)
-{
-
-    global $info;
-    $login = $command->player->login;
-    $xmltext = '<?xml version="1.0" encoding="UTF-8"?>';
-    $xmltext .= '<manialink id="' . $info->manialink_id1 . '"></manialink>';
-    $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xmltext, 0, false);
-
-    $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
-    $xmlchrono .= '<manialink id="' . $info->manialink_id2 . '"></manialink>';
-    $aseco->client->query("SendDisplayManialinkPageToLogin", $login, $xmlchrono, 0, false);
 }
 
 class info_class
@@ -254,32 +174,10 @@ class info_class
         //settings from config-file
         $settings = simplexml_load_file('spyke_allcps.xml');
 
-        $show_dedimania = $settings->show_dedimania;
-        $this->frame_custom_local_title_posn_x = $settings->c_title_local->hx;
-        $this->frame_custom_local_title_posn_y = $settings->c_title_local->vy;
-        $this->frame1_custom_posn_x = $settings->c_left_top1_point->hx;
-        $this->frame1_custom_posn_y = $settings->c_left_top1_point->vy;
-        $this->frame2_custom_posn_x = $settings->c_left_top2_point->hx;
-        $this->frame2_custom_posn_y = $settings->c_left_top2_point->vy;
-        $this->frame_custom_dedi_title_posn_x = $settings->c_title_dedi->hx;
-        $this->frame_custom_dedi_title_posn_y = $settings->c_title_dedi->vy;
         $this->frame3_custom_posn_x = $settings->c_left_top3_point->hx;
         $this->frame3_custom_posn_y = $settings->c_left_top3_point->vy;
         $this->frame4_custom_posn_x = $settings->c_left_top4_point->hx;
         $this->frame4_custom_posn_y = $settings->c_left_top4_point->vy;
-
-        $this->frame_local_title_posn_x = $settings->title_local->hx;
-        $this->frame_local_title_posn_y = $settings->title_local->vy;
-        $this->frame1_posn_x = $settings->left_top1_point->hx;
-        $this->frame1_posn_y = $settings->left_top1_point->vy;
-        $this->frame2_posn_x = $settings->left_top2_point->hx;
-        $this->frame2_posn_y = $settings->left_top2_point->vy;
-        $this->frame_dedi_title_posn_x = $settings->title_dedi->hx;
-        $this->frame_dedi_title_posn_y = $settings->title_dedi->vy;
-        $this->frame3_posn_x = $settings->left_top3_point->hx;
-        $this->frame3_posn_y = $settings->left_top3_point->vy;
-        $this->frame4_posn_x = $settings->left_top4_point->hx;
-        $this->frame4_posn_y = $settings->left_top4_point->vy;
 
         $this->text_color = $settings->cpcolor->text_color;
         $this->rank_color = $settings->cpcolor->rank_color;
@@ -287,69 +185,24 @@ class info_class
         $this->manialink_id2 = $settings->manialink_id2;
     }
 
-    function getManialinktext($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $show_dedimania)
-    {
-        $cp = $cp + 1;
-        $xmltext = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xmltext .= '<manialink id=' . $this->manialink_id1 . '>';
-
-        $xmltext .= '<frame posn="' . $this->frame1_posn_x . ' ' . $this->frame1_posn_y . ' 0.3">';
-        $xmltext .= '<quad posn="0 19.1 0.3" sizen="16 4"/>';
-        $xmltext .= '<label scale="0.6" posn="0 1.5 0.1" halign="center" valign="center" textsize="3" text="$o$' . $persolocalbest . '"/>';
-        $xmltext .= '</frame>';
-
-        $xmltext .= '<frame posn="' . $this->frame2_posn_x . ' ' . $this->frame2_posn_y . ' 0.3">';
-        $xmltext .= '<quad posn="0 19.1 0.3" sizen="16 4"/>';
-        $xmltext .= '<label scale="0.6" posn="0 1.5 0.1" halign="center" valign="center" textsize="3" text="$o$' . $best . '"/>';
-        $xmltext .= '</frame>';
-
-        if ($show_dedimania == "true") {
-
-            $xmltext .= '<frame posn="' . $this->frame3_posn_x . ' ' . $this->frame3_posn_y . ' 0.3">';
-            $xmltext .= '<quad posn="0 19.1 0.3" sizen="16 4"/>';
-            $xmltext .= '<label scale="0.6" posn="0 1.5 0.1" halign="center" valign="center" textsize="3" text="$o$' . $dedibestof . '"/>';
-            $xmltext .= '</frame>';
-
-            $xmltext .= '<frame posn="' . $this->frame4_posn_x . ' ' . $this->frame4_posn_y . ' 0.3">';
-            $xmltext .= '<quad posn="0 19.1 0.3" sizen="16 4"/>';
-            $xmltext .= '<label scale="0.6" posn="0 1.5 0.1" halign="center" valign="center" textsize="3" text="$o$' . $persodedibest . '"/>';
-            $xmltext .= '</frame>';
-        } else {
-        }
-
-        $xmltext .= '</manialink>';
-        return $xmltext;
-    }
-
-
-    function getManialinkchrono($cp, $persolocalbest, $best, $dedibestof, $persodedibest, $show_dedimania)
+    function getManialinkchrono($cp, $dedibestof, $persodedibest)
     {
         $cp = $cp + 1;
         $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
         $xmlchrono .= '<manialink id=' . $this->manialink_id2 . '>';
 
-        $xmlchrono .= '<frame posn="' . $this->frame1_custom_posn_x . ' ' . $this->frame1_custom_posn_y . ' 0.3">';
-        $xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-        $xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$' . $persolocalbest . '"/>';
-        $xmlchrono .= '</frame>';
-
-        $xmlchrono .= '<frame posn="' . $this->frame2_custom_posn_x . ' ' . $this->frame2_custom_posn_y . ' 0.3">';
-        $xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
-        $xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$' . $best . '"/>';
-        $xmlchrono .= '</frame>';
-
-        if ($show_dedimania == "true") {
-
+        if ($dedibestof) {
             $xmlchrono .= '<frame posn="' . $this->frame3_custom_posn_x . ' ' . $this->frame3_custom_posn_y . ' 0.3">';
             $xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
             $xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$' . $dedibestof . '"/>';
             $xmlchrono .= '</frame>';
+        }
 
+        if ($persodedibest) {
             $xmlchrono .= '<frame posn="' . $this->frame4_custom_posn_x . ' ' . $this->frame4_custom_posn_y . ' 0.3">';
             $xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
             $xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$' . $persodedibest . '"/>';
             $xmlchrono .= '</frame>';
-        } else {
         }
 
         $xmlchrono .= '</manialink>';
