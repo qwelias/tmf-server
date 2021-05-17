@@ -269,33 +269,33 @@
 			<rounds>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>23.65</pos_y>
-				<entries>12</entries>
-				<topcount>5</topcount>
+				<pos_y>0</pos_y>
+				<entries>5</entries>
+				<topcount>3</topcount>
 			</rounds>
 
 			<time_attack>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>23.65</pos_y>
-				<entries>16</entries>
-				<topcount>5</topcount>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
+				<topcount>3</topcount>
 			</time_attack>
 
 			<team>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>23.65</pos_y>
-				<entries>12</entries>
-				<topcount>5</topcount>
+				<pos_y>0</pos_y>
+				<entries>5</entries>
+				<topcount>3</topcount>
 			</team>
 
 			<laps>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>23.65</pos_y>
-				<entries>12</entries>
-				<topcount>5</topcount>
+				<pos_y>0</pos_y>
+				<entries>5</entries>
+				<topcount>3</topcount>
 			</laps>
 
 			<stunts>						<!-- Unsupported by Dedimania, leave as is! -->
@@ -305,8 +305,8 @@
 			<cup>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>23.65</pos_y>
-				<entries>12</entries>
+				<pos_y>0</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</cup>
 		</gamemode>
@@ -364,48 +364,48 @@
 			<rounds>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>-1.2</pos_y>
-				<entries>11</entries>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</rounds>
 
 			<time_attack>
 				<enabled>true</enabled>
 				<pos_x>49.2</pos_x>
-				<pos_y>17.8</pos_y>
-				<entries>14</entries>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</time_attack>
 
 			<team>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>-1.2</pos_y>
-				<entries>11</entries>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</team>
 
 			<laps>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>-1.2</pos_y>
-				<entries>11</entries>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</laps>
 
 			<stunts>
 				<enabled>true</enabled>
-				<pos_x>49.2</pos_x>
-				<pos_y>6.6</pos_y>
-				<entries>10</entries>
+				<pos_x>-64.7</pos_x>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</stunts>
 
 			<cup>
 				<enabled>true</enabled>
 				<pos_x>-64.7</pos_x>
-				<pos_y>-1.2</pos_y>
-				<entries>11</entries>
+				<pos_y>-12</pos_y>
+				<entries>5</entries>
 				<topcount>3</topcount>
 			</cup>
 		</gamemode>
@@ -493,14 +493,14 @@
 				<enabled>true</enabled>
 				<race>
 					<pos_x>49.2</pos_x>
-					<pos_y>17.8</pos_y>
-					<entries>14</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</race>
 				<warmup>
 					<pos_x>49.2</pos_x>
-					<pos_y>10.7</pos_y>
-					<entries>10</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</warmup>
 			</rounds>
@@ -513,14 +513,14 @@
 				<enabled>true</enabled>
 				<race>
 					<pos_x>49.2</pos_x>
-					<pos_y>17.8</pos_y>
-					<entries>20</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</race>
 				<warmup>
 					<pos_x>49.2</pos_x>
-					<pos_y>10.7</pos_y>
-					<entries>16</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</warmup>
 			</team>
@@ -529,14 +529,14 @@
 				<enabled>true</enabled>
 				<race>
 					<pos_x>49.2</pos_x>
-					<pos_y>16.6</pos_y>
-					<entries>13</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</race>
 				<warmup>
 					<pos_x>49.2</pos_x>
-					<pos_y>11</pos_y>
-					<entries>10</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</warmup>
 			</laps>
@@ -549,13 +549,13 @@
 				<enabled>true</enabled>
 				<race>
 					<pos_x>49.2</pos_x>
-					<pos_y>17.8</pos_y>
-					<entries>16</entries>
+					<pos_y>1</pos_y>
+					<entries>12</entries>
 					<topcount>3</topcount>
 				</race>
 				<warmup>
 					<pos_x>49.2</pos_x>
-					<pos_y>10.7</pos_y>
+					<pos_y>1</pos_y>
 					<entries>12</entries>
 					<topcount>3</topcount>
 				</warmup>
@@ -898,7 +898,7 @@
 			<title>Dedimania Records</title>
 			<pos_x>-64.7</pos_x>
 			<pos_y>23.65</pos_y>
-			<entries>30</entries>
+			<entries>35</entries>
 			<icon_style>Icons128x128_1</icon_style>
 			<icon_substyle>Rankings</icon_substyle>
 		</dedimania_records>
