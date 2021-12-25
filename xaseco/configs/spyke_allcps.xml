@@ -20,6 +20,11 @@
 
 	<!-- checkpoints Dedimania manialink position -->
 
+	<c_left_top2_point><!--cp-->
+		<hx>0</hx>
+		<vy>-24</vy>
+	</c_left_top2_point>
+
 	<c_left_top3_point><!--best dedi-->
 		<hx>0</hx>
 		<vy>-28</vy>

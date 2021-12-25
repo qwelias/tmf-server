@@ -174,6 +174,8 @@ class info_class
         //settings from config-file
         $settings = simplexml_load_file('spyke_allcps.xml');
 
+        $this->frame2_custom_posn_x = $settings->c_left_top2_point->hx;
+        $this->frame2_custom_posn_y = $settings->c_left_top2_point->vy;
         $this->frame3_custom_posn_x = $settings->c_left_top3_point->hx;
         $this->frame3_custom_posn_y = $settings->c_left_top3_point->vy;
         $this->frame4_custom_posn_x = $settings->c_left_top4_point->hx;
@@ -190,6 +192,11 @@ class info_class
         $cp = $cp + 1;
         $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
         $xmlchrono .= '<manialink id=' . $this->manialink_id2 . '>';
+
+        $xmlchrono .= '<frame posn="' . $this->frame2_custom_posn_x . ' ' . $this->frame2_custom_posn_y . ' 0.3">';
+        $xmlchrono .= '<quad posn="0 19.1 0.3" sizen="20 4"/>';
+        $xmlchrono .= '<label scale="0.6" posn="0 1.2 0.1" halign="center" valign="center" style="TextRaceChrono" text="$s$' . $cp . '"/>';
+        $xmlchrono .= '</frame>';
 
         if ($dedibestof) {
             $xmlchrono .= '<frame posn="' . $this->frame3_custom_posn_x . ' ' . $this->frame3_custom_posn_y . ' 0.3">';
