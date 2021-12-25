@@ -10,7 +10,6 @@
 
 	<cpcolor>
 		<text_color>fff</text_color>
-		<rank_color>f70</rank_color>
 		<negative_cp_color>3f5</negative_cp_color>
 		<positive_cp_color>f00</positive_cp_color>
 	</cpcolor>

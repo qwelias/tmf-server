@@ -73,7 +73,7 @@ function spyke_ingame_record($aseco, $player)
 {
     global $dedi_db, $info,
         $positive_cp_color, $negative_cp_color,
-        $rank_color, $maxrecs, $show_time;
+        $maxrecs, $show_time;
 
     if (IN_XASECO) {
         global $dedi_db;
@@ -94,7 +94,6 @@ function spyke_ingame_record($aseco, $player)
     $settings = simplexml_load_file('spyke_allcps.xml');
     $positive_cp_color = $settings->cpcolor->positive_cp_color;
     $negative_cp_color = $settings->cpcolor->negative_cp_color;
-    $rank_color = $settings->cpcolor->rank_color;
     $show_time = $settings->show_time;
     $show_dedimania = $settings->show_dedimania;
 }
@@ -104,7 +103,7 @@ function checkpoint($aseco, $command)
 {
     global $aseco, $dedi_db,
         $positive_cp_color, $negative_cp_color,
-        $info, $rank_color, $show_time, $maxrecs;
+        $info, $show_time, $maxrecs;
 
 
     unset($deditemp);
@@ -182,14 +181,13 @@ class info_class
         $this->frame4_custom_posn_y = $settings->c_left_top4_point->vy;
 
         $this->text_color = $settings->cpcolor->text_color;
-        $this->rank_color = $settings->cpcolor->rank_color;
         $this->manialink_id1 = $settings->manialink_id1;
         $this->manialink_id2 = $settings->manialink_id2;
     }
 
     function getManialinkchrono($cp, $dedibestof, $persodedibest)
     {
-        $cp = $cp + 1;
+        $cp = $this->text_color . ($cp + 1);
         $xmlchrono = '<?xml version="1.0" encoding="UTF-8"?>';
         $xmlchrono .= '<manialink id=' . $this->manialink_id2 . '>';
 
