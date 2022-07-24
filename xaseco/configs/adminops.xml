@@ -36,6 +36,7 @@
 <!-- format:
 		<tmlogin>YOUR_OPERATOR_LOGIN</tmlogin> <ipaddress></ipaddress>
 -->
+		<tmlogin>lens.fluid32</tmlogin>
 		<tmlogin>joaouzumaki</tmlogin>
 		<tmlogin>nevria</tmlogin>
 		<tmlogin>blackq</tmlogin>
