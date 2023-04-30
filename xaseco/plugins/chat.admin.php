@@ -879,8 +879,8 @@ function chat_admin($aseco, $command) {
 					$message = '{#server}> {#error}Error downloading, or wrong TMX section, or TMX is down!';
 					$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 				} else {
-					// check for maximum online track size (256 KB)
-					if (strlen($file) >= 256 * 1024) {
+					// check for maximum online track size (512 KB)
+					if (strlen($file) >= 512 * 1024) {
 						$message = formatText($rasp->messages['TRACK_TOO_LARGE'][0],
 						                      round(strlen($file) / 1024));
 						$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
