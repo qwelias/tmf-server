@@ -1090,8 +1090,8 @@ function chat_admin($aseco, $command) {
 			}
 			$localfile = $aseco->server->trackdir . $partialdir;
 			if ($nocasepath = file_exists_nocase($localfile)) {
-				// check for maximum online track size (256 KB)
-				if (filesize($nocasepath) >= 256 * 1024) {
+				// check for maximum online track size (512 KB)
+				if (filesize($nocasepath) >= 512 * 1024) {
 					$message = formatText($rasp->messages['TRACK_TOO_LARGE'][0],
 					                      round(filesize($nocasepath) / 1024));
 					$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
