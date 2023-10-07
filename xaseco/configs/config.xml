@@ -214,7 +214,7 @@
 
   <tmserver>
     <login>SuperAdmin</login>
-    <password>YOUR_SUPERADMIN_PASSWORD</password>
+    <password>SuperAdmin</password>
     <ip>dedicated</ip>
     <port>5000</port>
     <timeout>180</timeout>
