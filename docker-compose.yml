@@ -1,11 +1,10 @@
-version: "3.9"
-
 services:
   xaseco:
     build: xaseco
     init: true
     restart: unless-stopped
     volumes:
+      - ../dynmaps:/GameData/Tracks/Challenges/dynmaps
       - gamedata:/GameData
     ports:
       - 8002:8002
@@ -14,6 +13,7 @@ services:
     init: true
     restart: unless-stopped
     volumes:
+      - ../dynmaps:/GameData/Tracks/Challenges/dynmaps
       - gamedata:/GameData
       - ./dedicated/dedicated.xml:/GameData/Config/dedicated.xml
     expose:
@@ -28,6 +28,12 @@ services:
     image: mysql:5
     restart: unless-stopped
     env_file: ./db/env
+    ulimits:
+        nofile: # Fix memory leak issue on some systems when LimitCORE=infinity (containerd)
+            soft: 1048576
+            hard: 1048576
+    
+    mem_limit: 1G
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
