@@ -43,7 +43,7 @@
 		<callvote_timeout>60000</callvote_timeout>
 		<callvote_ratio>0.6</callvote_ratio> <!-- default ratio. value in [0..1], or -1 to forbid. -->
 		<callvote_ratios>
-			<voteratio command="Ban" ratio="0.65"/>
+			<voteratio command="Ban" ratio="0.65" />
 			<!-- commands can be "Ban", "Kick", "ChallengeRestart", "NextChallenge", ... -->
 		</callvote_ratios>
 
