@@ -3,7 +3,7 @@
 	<gameinfos>
 		<game_mode>1</game_mode>
 		<chat_time>10000</chat_time>
-		<timeattack_limit>9 00000</timeattack_limit>
+		<timeattack_limit>720000</timeattack_limit>
 		<timeattack_synchstartperiod>0</timeattack_synchstartperiod>
 	</gameinfos>
 
