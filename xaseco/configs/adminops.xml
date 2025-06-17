@@ -29,7 +29,6 @@
 		<tmlogin>project-d</tmlogin>
 		<tmlogin>xdmwx</tmlogin>
 		<tmlogin>mighty-mike</tmlogin>
-		<tmlogin>ed2ward</tmlogin>
 		<tmlogin>marcel_333</tmlogin>
 		<tmlogin>realracer</tmlogin>
 	</admins>
@@ -38,6 +37,7 @@
 <!-- format:
 		<tmlogin>YOUR_OPERATOR_LOGIN</tmlogin> <ipaddress></ipaddress>
 -->
+		<tmlogin>ed2ward</tmlogin>
 		<tmlogin>kaspeeeer</tmlogin>
 		<tmlogin>lens.fluid32</tmlogin>
 		<tmlogin>joaouzumaki</tmlogin>
@@ -78,7 +78,6 @@
 		<tmlogin>legionmg</tmlogin>
 		<tmlogin>25.01.1994</tmlogin>
 		<tmlogin>demis</tmlogin>
-		<tmlogin>banlieu451</tmlogin>
 		<tmlogin>--c-ronos---c-rizis</tmlogin>
 		<tmlogin>warcool</tmlogin>
 		<tmlogin>zymeth</tmlogin>
