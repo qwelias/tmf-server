@@ -63,6 +63,7 @@ class dyn {
 	public $maps;
 	public $mapdir;
 	public $cache_file = '/dyn_infocache.json';
+	public $dirty = 0;
 
 	public $lastmaps = array();
 	public $currmap_path;
@@ -90,6 +91,7 @@ class dyn {
 	public function onNewChallenge($aseco, $challenge_item) {
 		$aseco->client->query('GetCurrentChallengeInfo');
 		$this->currmap_path = $aseco->client->getResponse()['FileName'];
+		if ($this->dirty) $this->cacheRefresh($this->aseco, null);
 	}
 
 	public function onEndRace($aseco, $data) {
@@ -148,6 +150,8 @@ class dyn {
 
 	public function cacheRefresh($aseco, $data) {
 		global $challengeListCache;
+
+		$this->dirty = 0;
 
 		$aseco->client->query('ChatSendServerMessage', '$ff0>> $f00WARNING: Reloading Challenge info cache. Xaseco might not react for a few minutes');
 

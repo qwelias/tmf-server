@@ -831,7 +831,7 @@ function chat_admin($aseco, $command) {
 	 * Adds TMX tracks to the track rotation.
 	 */
 	} elseif ($command['params'][0] == 'add') {
-		global $rasp, $tmxdir, $jukebox_adminadd;  // from plugin.rasp.php, rasp.settings.php
+		global $rasp, $tmxdir, $jukebox_adminadd, $dyn;
 
 		$sections = array('TMO' => 'original',
 		                  'TMS' => 'sunrise',
@@ -997,6 +997,8 @@ function chat_admin($aseco, $command) {
 									$jukebox[$uid]['tmx'] = false;
 									$jukebox[$uid]['uid'] = $uid;
 								}
+
+								$dyn->dirty++;
 
 								// log console message
 								$aseco->console('{1} [{2}] adds track "{3}" from {4}!', $logtitle, $login, stripColors($track['Name'], false), $source);
