@@ -929,8 +929,6 @@ function chat_admin($aseco, $command) {
 							$aseco->console('[chat.admin.php] Present' . $id);
 							$message = $rasp->messages['ADD_PRESENT'][0];
 							$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
-							unlink($localfile);
-							unset($list);
 							if ($jukebox_adminadd) {
 								$uid = $key['uid'];
 								$jukebox[$uid]['FileName'] = $key['filename'];
@@ -942,7 +940,13 @@ function chat_admin($aseco, $command) {
 								$jukebox[$uid]['tmx'] = false;
 								$jukebox[$uid]['uid'] = $uid;
 								$aseco->releaseEvent('onJukeboxChanged', array('add', $jukebox[$uid]));
+								$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}jukeboxes {3}track: {#highlite}{4} {#admin}from {5}',
+								                      $chattitle, $admin->nickname,
+								                      stripColors($key['name']), $source);
+								$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 							}
+							unlink($localfile);
+							unset($list);
 							continue 2;  // outer for loop
 						}
 					}
