@@ -889,6 +889,7 @@ function chat_admin($aseco, $command) {
 					$sepchar = substr($aseco->server->trackdir, -1, 1);
 					$partialdir = $tmxdir . $sepchar . $trkid . '.Challenge.gbx';
 					$localfile = $aseco->server->trackdir . $partialdir;
+			        $aseco->console('[chat.admin.php] Downloaded' . $id);
 					if ($nocasepath = file_exists_nocase($localfile)) {
 						if (!unlink($nocasepath)) {
 							$message = '{#server}> {#error}Error erasing old file - unable to erase {#highlite}$i ' . $localfile;
@@ -908,6 +909,7 @@ function chat_admin($aseco, $command) {
 						continue;
 					}
 					fclose($lfile);
+			        $aseco->console('[chat.admin.php] Saved' . $id);
 					$newtrk = getChallengeData($localfile);
 					if ($newtrk['votes'] == 500 && $newtrk['name'] == 'Not a GBX file') {
 						$message = '{#server}> {#error}No such track on ' . $source;
@@ -924,6 +926,7 @@ function chat_admin($aseco, $command) {
 					// check for track presence on server
 					foreach ($list->tracklist as $key) {
 						if ($key['uid'] == $newtrk['uid']) {
+			                $aseco->console('[chat.admin.php] Present' . $id);
 							$message = $rasp->messages['ADD_PRESENT'][0];
 							$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 							unlink($localfile);
