@@ -909,7 +909,7 @@ function chat_admin($aseco, $command) {
 						continue;
 					}
 					fclose($lfile);
-			        $aseco->console('[chat.admin.php] Saved' . $id);
+					$aseco->console('[chat.admin.php] Saved' . $id);
 					$newtrk = getChallengeData($localfile);
 					if ($newtrk['votes'] == 500 && $newtrk['name'] == 'Not a GBX file') {
 						$message = '{#server}> {#error}No such track on ' . $source;
@@ -926,11 +926,23 @@ function chat_admin($aseco, $command) {
 					// check for track presence on server
 					foreach ($list->tracklist as $key) {
 						if ($key['uid'] == $newtrk['uid']) {
-			                $aseco->console('[chat.admin.php] Present' . $id);
+							$aseco->console('[chat.admin.php] Present' . $id);
 							$message = $rasp->messages['ADD_PRESENT'][0];
 							$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 							unlink($localfile);
 							unset($list);
+							if ($jukebox_adminadd) {
+								$uid = $key['uid'];
+								$jukebox[$uid]['FileName'] = $key['filename'];
+								$jukebox[$uid]['Name'] = $key['name'];
+								$jukebox[$uid]['Env'] = $key['environment'];
+								$jukebox[$uid]['Login'] = $login;
+								$jukebox[$uid]['Nick'] = $admin->nickname;
+								$jukebox[$uid]['source'] = $source;
+								$jukebox[$uid]['tmx'] = false;
+								$jukebox[$uid]['uid'] = $uid;
+								$aseco->releaseEvent('onJukeboxChanged', array('add', $jukebox[$uid]));
+							}
 							continue 2;  // outer for loop
 						}
 					}
@@ -969,7 +981,7 @@ function chat_admin($aseco, $command) {
 					if (!$rtn) {
 						trigger_error('[' . $aseco->client->getErrorCode() . '] CheckChallengeForCurrentServerParams - ' . $aseco->client->getErrorMessage(), E_USER_WARNING);
 						$message = formatText($rasp->messages['JUKEBOX_IGNORED'][0],
-						                      stripColors($newtrk['name']), $aseco->client->getErrorMessage());
+												stripColors($newtrk['name']), $aseco->client->getErrorMessage());
 						$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 					} else {
 						// permanently add the track to the server list
@@ -983,7 +995,7 @@ function chat_admin($aseco, $command) {
 							if ($aseco->client->isError()) {
 								trigger_error('[' . $aseco->client->getErrorCode() . '] GetChallengeInfo - ' . $aseco->client->getErrorMessage(), E_USER_WARNING);
 								$message = formatText('{#server}> {#error}Error getting info on track {#highlite}$i {1} {#error}!',
-								                      $partialdir);
+														$partialdir);
 								$aseco->client->query('ChatSendServerMessageToLogin', $aseco->formatColors($message), $login);
 							} else {
 								$track['Name'] = stripNewlines($track['Name']);
