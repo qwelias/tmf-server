@@ -13,4 +13,4 @@ COPY plugins plugins
 COPY includes includes
 COPY configs .
 
-CMD ["php", "aseco.php", "TMF"]
+CMD ["php", "-d", "memory_limit=256M", "aseco.php", "TMF"]
