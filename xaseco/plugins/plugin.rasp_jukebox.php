@@ -1068,7 +1068,7 @@ function chat_add($aseco, $command) {
 					return;
 				}
 				fclose($lfile);
-				$newtrk = getChallengeData($localfile, true);  // 2nd parm is whether or not to get players & votes required
+				$newtrk = getChallengeData($localfile);
 				if ($newtrk['votes'] == 500 && $newtrk['name'] == 'Not a GBX file') {
 					$message = '{#server}> {#error}No such track on ' . $source;
 					if ($source == 'TMX' && $aseco->server->getGame() == 'TMF')
@@ -1194,7 +1194,7 @@ function build_tmx_trackref($aseco) {
 		$fp = fopen($td . '/trackref.txt', 'w');
 		while (($file = readdir($dir)) !== false) {
 			if (strtolower(substr($file, -4)) == '.gbx') {
-				$ci = getChallengeData($td . '/' . $file, false);
+				$ci = getChallengeData($td . '/' . $file);
 				$file = str_ireplace('.challenge.gbx', '', $file);
 				fwrite($fp, $file . "\t" . $ci['environment'] . "\t" . $ci['author'] . "\t" . stripColors($ci['name']) . "\t" . $ci['coppers'] . CRLF);
 			}
@@ -1209,7 +1209,7 @@ function build_tmx_trackref($aseco) {
 		$fp = fopen($td . '/trackref.txt', 'w');
 		while (($file = readdir($dir)) !== false) {
 			if (strtolower(substr($file, -4)) == '.gbx') {
-				$ci = getChallengeData($td . '/' . $file, false);
+				$ci = getChallengeData($td . '/' . $file);
 				$file = str_ireplace('.challenge.gbx', '', $file);
 				fwrite($fp, $file . "\t" . $ci['environment'] . "\t" . $ci['author'] . "\t" . stripColors($ci['name']) . "\t" . $ci['coppers'] . CRLF);
 			}

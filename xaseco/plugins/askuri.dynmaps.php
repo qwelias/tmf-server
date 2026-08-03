@@ -111,14 +111,15 @@ class dyn {
 		// Get challenge list
 		$this->aseco->client->query('GetChallengeList', 100, 0);
 		$mapscount = count($this->aseco->client->getResponse());
+		$rstr = $mapscount.'/'.$this->settings->buffer[0];
 
 		if ($mapscount >= $this->settings->buffer[0]) {
-			$this->aseco->console('[DynMaps] Buffering not needed, enough maps in list');
+			$this->aseco->console('[DynMaps] '.$rstr.' Buffering not needed, enough maps in list');
 			return false;
 		} else {
 			$map = $this->maps[$this->currmap_glob_id];
 
-			$this->aseco->console('[DynMaps] Adding '.basename($map));
+			$this->aseco->console('[DynMaps] '.$rstr.' Adding '.basename($map));
 			$this->aseco->client->query('AddChallenge', $map);
 			$this->aseco->releaseEvent('onTracklistChanged', 'add', $map);
 

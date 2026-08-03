@@ -908,7 +908,7 @@ function chat_admin($aseco, $command) {
 						continue;
 					}
 					fclose($lfile);
-					$newtrk = getChallengeData($localfile, false);  // 2nd parm is whether or not to get players & votes required
+					$newtrk = getChallengeData($localfile);
 					if ($newtrk['votes'] == 500 && $newtrk['name'] == 'Not a GBX file') {
 						$message = '{#server}> {#error}No such track on ' . $source;
 						if ($source == 'TMX' && $aseco->server->getGame() == 'TMF')

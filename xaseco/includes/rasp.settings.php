@@ -42,7 +42,7 @@ $remind_karma = 0;  // 2 = every finish; 1 = at end of race; 0 = none
 //Set to true if you want jukebox functionality
 $feature_jukebox = true;
 //Set to true if you want jukebox to be extended to include the TMX /add feature
-$feature_tmxadd = false;
+$feature_tmxadd = true;
 //Set to true if you want jukebox to skip tracks requested by players that left
 $jukebox_skipleft = true;
 //Set to true if you want jukebox to _not_ skip tracks requested by admins

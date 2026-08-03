@@ -88,7 +88,7 @@ function getChallengesCache($aseco, $reload = false) {
 
 			foreach ($tracks as $trow) {
 				// obtain various author fields too
-				$trackinfo = getChallengeData($aseco->server->trackdir . $trow['FileName'], false);
+				$trackinfo = getChallengeData($aseco->server->trackdir . $trow['FileName']);
 				if ($trackinfo['name'] != 'file not found') {
 					if ($aseco->server->getGame() != 'TMF')
 						$trow['Author']    = $trackinfo['author'];
@@ -1926,7 +1926,7 @@ function event_multi_message($aseco, $answer) {
 	}
 }  // event_multi_message
 
-function getChallengeData($filename, $rtnvotes) {
+function getChallengeData($filename) {
 	global $aseco, $tmxvoteratio;
 
 	$ret = array();
@@ -1935,15 +1935,8 @@ function getChallengeData($filename, $rtnvotes) {
 		$ret['votes'] = 500;
 		return $ret;
 	}
-	// check whether votes are needed
-	if ($rtnvotes) {
-		$ret['votes'] = required_votes($tmxvoteratio);  // from plugin.rasp_votes.php
-		if ($aseco->debug) {
-			$ret['votes'] = 1;
-		}
-	} else {
-		$ret['votes'] = 1;
-	}
+    $ret['votes'] = 1;
+
 
 	$gbx = new GBXChallMapFetcher();
 	try
