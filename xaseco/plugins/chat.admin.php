@@ -940,9 +940,9 @@ function chat_admin($aseco, $command) {
 								$jukebox[$uid]['tmx'] = false;
 								$jukebox[$uid]['uid'] = $uid;
 								$aseco->releaseEvent('onJukeboxChanged', array('add', $jukebox[$uid]));
-								$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}jukeboxes track: {#highlite}{3} {#admin}from {5}',
+								$message = formatText('{#server}>> {#admin}{1}$z$s {#highlite}{2}$z$s {#admin}jukeboxes track: {#highlite}{3} {#admin}from {4}',
 								                      $chattitle, $admin->nickname,
-								                      stripColors($track['Name']), $source);
+								                      stripColors($key['name']), $source);
 								$aseco->client->query('ChatSendServerMessage', $aseco->formatColors($message));
 							}
 							unlink($localfile);
